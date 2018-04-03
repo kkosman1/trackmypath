@@ -14,4 +14,16 @@ router.get('/home', function(req, res, next){
   res.render('home');
 });
 
+router.get('/resumebuilder', function(req, res, next){
+  res.render('resumebuilder');
+});
+
+router.get('/interests', function(req, res, next){
+  res.render('interests');
+});
+
+router.get('/apptracker', function(req, res, next){
+  res.render('apptracker');
+});
+
 module.exports = router;

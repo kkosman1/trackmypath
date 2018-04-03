@@ -9,15 +9,8 @@ body {
   background-size: cover;
 }
 
-h1 {
-  font-size: 6vw;
-  font-weight: bold;
-  padding-bottom: 20px;
-}
-
 div.login {
   border-radius: 6px;
-  border: 2px solid gray;
   width: 400px;
   padding: 15px;
   background: rgba(255, 255, 255, .45);
@@ -29,7 +22,7 @@ div.login {
   color: rgb(173, 172, 172);
 }
 
-.button {
+.homegrid {
   font-size: 4vw;
   border: 2px white;
   border-radius: 6px;
@@ -40,7 +33,7 @@ div.login {
   background-color: rgb(151, 146, 146);
 }
 
-.button:hover {
+.homegrid:hover {
   background-color: rgb(194, 190, 190);
 }
 
