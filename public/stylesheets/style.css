@@ -1,0 +1,33 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(233, 233, 233);
+}
+
+h1 {
+  padding-bottom: 20px;
+}
+
+div.login {
+  outline: 2px solid black;
+  width: 400px;
+  padding: 15px;
+}
+
+.button {
+  background-color: rgb(204, 207, 207);
+  border: none;
+  width: 20vw;
+  height: 30vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button:hover {
+  background-color: gray;
+}
+
+.btn-link {
+  text-decoration: underline;
+}

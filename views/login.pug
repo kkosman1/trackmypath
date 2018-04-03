@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div(align="center")
+    h1= title
+    div(class="login")
+      div(align="center")
+        h4= "SIGN INTO ACCOUNT"
+        form(class="form-horizontal")
+          div(class="form-group")
+            div(class="col-sm-3" align="right")
+              label(class="control-label" for="username") USERNAME
+            div(class="col-sm-9")
+              input(type="text" class="form-control" id="username")
+          div(class="form-group")
+            label(class="control-label col-sm-3" for="password") PASSWORD
+            div(class="col-sm-9")
+              input(type="text" class="form-control" id="password")
+          button(type="button" class="btn btn-link") Create New Account
+          div(align="right")
+            button(type="submit" class="btn btn-default") Sign In >
+    
