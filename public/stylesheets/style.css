@@ -70,3 +70,15 @@ div.login {
 .btn-link {
   text-decoration: underline;
 }
+
+.appgrid {
+  font-size: 4vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 20vw;
+  height: 40vw;
+  vertical-align: middle;
+  margin: auto;
+  color: #ffffff;
+  background-color: rgb(255, 255, 255);
+}
