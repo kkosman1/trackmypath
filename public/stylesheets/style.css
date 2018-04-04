@@ -44,6 +44,48 @@ div.signup {
   background-color: rgb(194, 190, 190);
 }
 
+.resumebuildergrid {
+  font-size: 4vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 20vw;
+  height: 15vw;
+  vertical-align: middle;
+  color: #fffcf9;
+  background-color: rgb(151, 146, 146);
+}
+
+.resumebuildergrid:hover {
+  background-color: rgb(194, 190, 190);
+}
+
+.resumebuilderaddgrid {
+  font-size: 4vw;
+  border: 6px rgb(151, 146, 146) solid;
+  border-radius: 6px;
+  width: 20vw;
+  height: 15vw;
+  vertical-align: middle;
+  color: rgb(151, 146, 146);
+  background-color: transparent;
+}
+
+.resumebuilderaddgrid:hover {
+  background-color: rgb(194, 190, 190);
+}
+
 .btn-link {
   text-decoration: underline;
+}
+
+.appgrid {
+  font-size: 4vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 20vw;
+  height: 40vw;
+  vertical-align: middle;
+  margin: auto;
+  color: #ffffff;
+  background-color: rgb(255, 255, 255);
 }
