@@ -16,6 +16,13 @@ div.login {
   background: rgba(255, 255, 255, .45);
 }
 
+div.signup {
+  border-radius: 6px;
+  width: 500px;
+  padding: 15px;
+  background: rgba(255, 255, 255, .45);
+}
+
 .signout {
   background: rgba(255, 255, 255, .45);
   border: 2px solid rgb(173, 172, 172);

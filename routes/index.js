@@ -10,20 +10,24 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Track My Path' });
 });
 
+router.get('/login/signup', function(req, res, next){
+  res.render('signup', { title: 'Track My Path' });
+});
+
 router.get('/home', function(req, res, next){
-  res.render('home');
+  res.render('home', { title: 'Track My Path' });
 });
 
 router.get('/resumebuilder', function(req, res, next){
-  res.render('resumebuilder');
+  res.render('resumebuilder', { title: 'Track My Path' });
 });
 
 router.get('/interests', function(req, res, next){
-  res.render('interests');
+  res.render('interests', { title: 'Track My Path' });
 });
 
 router.get('/apptracker', function(req, res, next){
-  res.render('apptracker');
+  res.render('apptracker', { title: 'Track My Path' });
 });
 
 module.exports = router;
