@@ -1,4 +1,3 @@
-
 html {
     height: 100%;
   }
@@ -108,7 +107,7 @@ html {
   }
   
   .appgriditem {
-    font-size: 4vw;
+    font-size: 2vw;
     border: 2px white;
     border-radius: 6px;
     width: 18vw;
@@ -117,6 +116,10 @@ html {
     margin: auto;
     color: #fffcf9;
     background-color: rgb(151, 146, 146);
+  }
+  
+  .appgriditem:hover {
+    cursor: -webkit-grab;
   }
   
   .appgridlist {
