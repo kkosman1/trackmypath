@@ -10,6 +10,10 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Track My Path' });
 });
 
+router.post('/login', function(req, res, next){
+  res.redirect('/home');
+});
+
 router.get('/login/signup', function(req, res, next){
   res.render('signup', { title: 'Track My Path' });
 });
