@@ -89,3 +89,47 @@ div.signup {
   color: #ffffff;
   background-color: rgb(255, 255, 255);
 }
+
+.appgridheader {
+  font-size: 4vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 20vw;
+  height: 5vw;
+  vertical-align: middle;
+  margin: auto;
+  color: #fffcf9;
+  background-color: rgb(151, 146, 146);
+}
+
+.appgridheadertext {
+  padding: 1.25vw;
+}
+
+.appgriditem {
+  font-size: 4vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 18vw;
+  height: 5vw;
+  vertical-align: middle;
+  margin: auto;
+  color: #fffcf9;
+  background-color: rgb(151, 146, 146);
+}
+
+.appgridlist {
+  padding: 5px 0 0 0;
+  font-size: 4vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 20vw;
+  height: 35vw;
+  vertical-align: middle;
+  margin: auto;
+  color: #ffffff;
+  background-color: rgb(255, 255, 255);
+  list-style-type: none;
+}
+
+

@@ -1,13 +1,31 @@
 extends layout
 
 block content
-    h1 App Tracker will go here
-        div(class="col-sm-12")
-            div(class="col-sm-1")
-            div(class="col-sm-3")
-                div(class='appgrid')
-            div(class="col-sm-3")
-                div(class='appgrid')
-            div(class="col-sm-3")
-                div(class='appgrid')
-            div(class="col-sm-1")
+    div(class="col-sm-1" align="left")
+        button(type="submit" onclick="window.location.href='/home'" class="btn btn-default signout") < Back
+    div(class="col-sm-12")
+        div(class="col-sm-1")
+        div(class="col-sm-3")
+            div(class='appgrid')
+                div(class='appgridheader')
+                    div(class="row")
+                        div(class="col-sm-8")
+                            div(class='appgridheadertext')                           
+                                h4 TO DO
+                        div(class="col-sm-4")
+                            i(class="far fa-plus")
+                ul(id='todolist' class='appgridlist')
+                    li(class='appgriditem')
+        div(class="col-sm-3")
+            div(class='appgrid')
+                div(class='appgridheader')
+                    div(class='appgridheadertext')
+                        h4 IN PROGRESS
+                ul(id='inprogresslist' class='appgridlist')
+        div(class="col-sm-3")
+            div(class='appgrid')
+                div(class='appgridheader')
+                    div(class='appgridheadertext')
+                        h4 COMPLETED
+                ul(id='completedlist' class='appgridlist')
+        div(class="col-sm-1")
