@@ -1,5 +1,5 @@
 # Track My Path
-Kim Kosman, Katie Schermerhorn, Sarah Olson, Sarah Drumm, Connor Higgins
+Kim Kosman, Katie Schermerhorn, Sarah Olson, Sarah Drumm, Connor Higgins, Michael McRoskey
 
 ![](images/home.png)
 
