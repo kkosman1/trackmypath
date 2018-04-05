@@ -1,6 +1,8 @@
 extends layout
 
 block content
+
+    
     div(class="col-sm-1" align="left")
         button(type="submit" onclick="window.location.href='/home'" class="btn btn-default signout") < Back
     div(class="col-sm-12")
@@ -29,3 +31,9 @@ block content
                         h4 COMPLETED
                 ul(id='completedlist' class='appgridlist')
         div(class="col-sm-1")
+
+        script. 
+            $("#todolist").sortable({connectWith: ".appgridlist"});
+            $("#inprogresslist").sortable({connectWith: ".appgridlist"});
+            $("#completedlist").sortable({connectWith: ".appgridlist"});
+
