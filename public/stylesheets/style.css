@@ -108,14 +108,14 @@ div.signup {
 
 .appgriditem {
   font-size: 4vw;
-  border: 2px white;
+  border: 6px solid rgb(151, 146, 146);
   border-radius: 6px;
   width: 18vw;
   height: 5vw;
   vertical-align: middle;
   margin: auto;
   color: #fffcf9;
-  background-color: rgb(151, 146, 146);
+  background-color: rgb(255, 255, 255);
 }
 
 .appgridlist {
