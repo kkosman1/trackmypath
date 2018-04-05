@@ -10,30 +10,32 @@ TRack My Path is a project for the [Robinson Community Learning Center](https://
 ----
 ## Files
 1. bin/
-	* Node packages
+	* **`www`**: defines module dependencies and server address information
 2. public/
 	* images/
-		* **`logo.png`**:
-		* **`wallpaper.png`**:
+		* **`logo.png`**: graph-like logo
+		* **`wallpaper.png`**: background texture image
 	* stylesheets/
-		* **`style.css`**:
+		* **`style.css`**: CSS styling for website
 3. routes/
-	* **`index.js`**: 
+	* **`index.js`**: defines what pages are accessible
 4. views/
-	* **`apptracker.pug`**: 
-	* **`error.pug`**:
-	* **`home.pug`**: 
-	* **`interests.pug`**: 
-	* **`layout.pug`**: 
-	* **`login.pug`**: 
-	* **`resumebuilder.pug`**: 
-	* **`signup.pug`**: 
+	* **`apptracker.pug`**: app tracker page definition
+	* **`error.pug`**: error page
+	* **`home.pug`**: home page
+	* **`interests.pug`**: interests page
+	* **`layout.pug`**: overall layout design
+	* **`login.pug`**: login page
+	* **`resumebuilder.pug`**: resume builder page
+	* **`signup.pug`**: signup page
 5. node_modules/
+	* Node modules
 6. images/
 	* **`home.png`**: 
-7. **`package-lock.json`**:
-8. **`package.json`**: 
-9. **`README.md`**
+7. **`package-lock.json`**: auto-generated package file
+8. **`package.json`**: auto-generated package file
+9. **`app.js`**: header file
+10. **`README.md`**
 
 ----
 ## Usage
