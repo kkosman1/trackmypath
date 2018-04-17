@@ -1,39 +1,28 @@
 extends layout
 
 block content
-    div(class="col-sm-1" align="left")
+    div(class="col-med-1" align="left")
         button(type="submit" onclick="window.location.href='/home'" class="btn btn-default signout") < Back
-    div(class="col-sm-11")
-        h1 
-        h1 
-        div(class="col-sm-3")
-            button(class="resumebuildergrid")
-                div(align="center")
-                    h2 Service
-            h1
-            h1
-            button(class="resumebuildergrid")
-                div(align="center")
-                    h2 Leadership
+    div(class="row")
         div(class="col-sm-1")
-        div(class="col-sm-3")
-            button(class="resumebuildergrid")
-                div(align="center")
-                    h2 Sports
-            h1
-            h1
-            button(class="resumebuildergrid")
-                div(align="center")
-                    h2 Test Scores 
-        div(class="col-sm-1")
-        div(class="col-sm-3")
-            button(class="resumebuildergrid")
-                div(align="center")
-                    h2 Awards
-            h1
-            h1
-            button(class="resumebuilderaddgrid")
-                div(align="center")
-                    div(style="font-size:1.5em;")
-                        i(class="fas fa-plus")
-        div(class="col-sm-1")
+        div(class="col-sm-11")
+            br
+            br
+            div(class="row")
+                div(class="col-sm-4")
+                    button(class="resumegrid") Service
+                div(class="col-sm-4")
+                    button(class="resumegrid") Leadership
+                div(class="col-sm-4")
+                    button(class="resumegrid") Sports
+            div(class="gridbreak")
+                div(class="col-sm-12")
+            div(class="row")
+                div(class="col-sm-4")
+                    button(class="resumegrid") Test Scores 
+                div(class="col-sm-4")
+                    button(class="resumegrid") Awards
+                div(class="col-sm-4")
+                    button(class="resumeaddgrid")
+                        div(style="font-size:1.5em;")
+                            i(class="fas fa-plus")

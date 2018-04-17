@@ -1,4 +1,43 @@
 extends layout
 
 block content
-    h1 Interests and Resources will go here
+    nav(class="navbar navbar-light")
+        div(class="container-fluid")
+            ul(class="nav navbar-nav")
+                li(class="dropdown")
+                    a(class="dropdown-toggle" data-toggle="dropdown") Interests & Resources
+                     span(class="caret")
+                    ul(class="dropdown-menu")
+                        li
+                            a(href="/home") Home
+                        li
+                            a(href="/resumebuilder") Resume Builder
+                        li(class="active")
+                            a(href="/interests") Interests & Resources
+                        li
+                            a(href="/apptracker") Application Tracker
+
+
+    div(class="col-med-1" align="left")
+        button(type="submit" onclick="window.location.href='/home'" class="btn btn-default signout") < Back
+    div(class="row")
+        div(class="col-sm-1")
+        div(class="col-sm-11")
+            br
+            br
+            div(class="row")
+                div(class="col-sm-4")
+                    button(class="resumegrid") College Preferences
+                div(class="col-sm-4")
+                    button(class="resumegrid") Scholarship Research
+                div(class="col-sm-4")
+                    button(class="resumegrid") Major Research
+            div(class="gridbreak")
+                div(class="col-sm-12")
+            div(class="row")
+                div(class="col-sm-4")
+                    button(class="resumegrid") College Research
+                div(class="col-sm-4")
+                    button(class="resumeaddgrid")
+                        div(style="font-size:1.5em;")
+                            i(class="fas fa-plus")

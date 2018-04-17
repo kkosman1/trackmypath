@@ -2,136 +2,140 @@ html {
     height: 100%;
   }
   
-  body {
-    padding: 50px;
-    font-family: Verdana, Geneva, sans-serif;
-    background-image: url("../images/wallpaper.jpg");
-    background-size: cover;
-  }
-  
-  div.login {
-    border-radius: 6px;
-    width: 400px;
-    padding: 15px;
-    background: rgba(255, 255, 255, .45);
-  }
-  
-  div.signup {
-    border-radius: 6px;
-    width: 500px;
-    padding: 15px;
-    background: rgba(255, 255, 255, .45);
-  }
-  
-  .signout {
-    background: rgba(255, 255, 255, .45);
-    border: 2px solid rgb(173, 172, 172);
-    color: rgb(173, 172, 172);
-  }
-  
-  .homegrid {
-    font-size: 4vw;
-    border: 2px white;
-    border-radius: 6px;
-    width: 20vw;
-    height: 30vw;
-    vertical-align: middle;
-    color: #fffcf9;
-    background-color: rgb(151, 146, 146);
-  }
-  
-  .homegrid:hover {
-    background-color: rgb(194, 190, 190);
-  }
-  
-  .resumebuildergrid {
-    font-size: 4vw;
-    border: 2px white;
-    border-radius: 6px;
-    width: 20vw;
-    height: 15vw;
-    vertical-align: middle;
-    color: #fffcf9;
-    background-color: rgb(151, 146, 146);
-  }
-  
-  .resumebuildergrid:hover {
-    background-color: rgb(194, 190, 190);
-  }
-  
-  .resumebuilderaddgrid {
-    font-size: 4vw;
-    border: 6px rgb(151, 146, 146) solid;
-    border-radius: 6px;
-    width: 20vw;
-    height: 15vw;
-    vertical-align: middle;
-    color: rgb(151, 146, 146);
-    background-color: transparent;
-  }
-  
-  .resumebuilderaddgrid:hover {
-    background-color: rgb(194, 190, 190);
-  }
-  
-  .btn-link {
-    text-decoration: underline;
-  }
-  
-  .appgrid {
-    font-size: 4vw;
-    border: 2px white;
-    border-radius: 6px;
-    width: 20vw;
-    height: 40vw;
-    vertical-align: middle;
-    margin: auto;
-    color: #ffffff;
-    background-color: rgb(255, 255, 255);
-  }
-  
-  .appgridheader {
-    font-size: 4vw;
-    border: 2px white;
-    border-radius: 6px;
-    width: 20vw;
-    height: 5vw;
-    vertical-align: middle;
-    margin: auto;
-    color: #fffcf9;
-    background-color: rgb(151, 146, 146);
-  }
-  
-  .appgridheadertext {
-    padding: 1.25vw;
-  }
-  
-  .appgriditem {
-    font-size: 2vw;
-    border: 2px white;
-    border-radius: 6px;
-    width: 18vw;
-    height: 5vw;
-    vertical-align: middle;
-    margin: auto;
-    color: #fffcf9;
-    background-color: rgb(151, 146, 146);
-  }
-  
-  .appgriditem:hover {
-    cursor: -webkit-grab;
-  }
-  
-  .appgridlist {
-    padding: 5px 0 0 0;
-    font-size: 4vw;
-    border: 2px white;
-    border-radius: 6px;
-    width: 20vw;
-    height: 35vw;
-    vertical-align: middle;
-    margin: auto;
-    color: #ffffff;
-    background-color: rgb(255, 255, 255);
-    list-style-type: none;
-  }
+body {
+  padding: 50px;
+  font-family: Verdana, Geneva, sans-serif;
+  background-image: url("../images/wallpaper.jpg");
+  background-size: cover;
+}
+
+div.login {
+  border-radius: 6px;
+  width: 400px;
+  padding: 15px;
+  background: rgba(255, 255, 255, .45);
+}
+
+div.signup {
+  border-radius: 6px;
+  width: 500px;
+  padding: 15px;
+  background: rgba(255, 255, 255, .45);
+}
+
+.signout {
+  background: rgba(255, 255, 255, .45);
+  border: 2px solid rgb(173, 172, 172);
+  color: rgb(173, 172, 172);
+}
+
+.homegrid {
+  font-size: 4vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 20vw;
+  height: 30vw;
+  vertical-align: middle;
+  color: #fffcf9;
+  background-color: rgb(151, 146, 146);
+}
+
+.homegrid:hover {
+  background-color: rgb(194, 190, 190);
+}
+
+.resumegrid, .interestsgrid {
+  font-size: 3vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 20vw;
+  height: 15vw;
+  vertical-align: middle;
+  color: #fffcf9;
+  background-color: rgb(151, 146, 146);
+}
+
+.resumegrid:hover, .interestsgrid:hover {
+  background-color: rgb(194, 190, 190);
+}
+
+.resumeaddgrid, .interestsaddgrid {
+  font-size: 4vw;
+  border: 4px rgb(151, 146, 146) solid;
+  border-radius: 6px;
+  width: 20vw;
+  height: 15vw;
+  vertical-align: middle;
+  color: rgb(151, 146, 146);
+  background-color: transparent;
+}
+
+.resumeaddgrid:hover, interestsaddgrid:hover {
+  background-color: rgb(194, 190, 190);
+}
+
+.gridbreak {
+  height: 15px;
+}
+
+.btn-link {
+  text-decoration: underline;
+}
+
+.appgrid {
+  font-size: 4vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 20vw;
+  height: 40vw;
+  vertical-align: middle;
+  margin: auto;
+  color: #ffffff;
+  background-color: rgb(255, 255, 255);
+}
+
+.appgridheader {
+  font-size: 4vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 20vw;
+  height: 5vw;
+  vertical-align: middle;
+  margin: auto;
+  color: #fffcf9;
+  background-color: rgb(151, 146, 146);
+}
+
+.appgridheadertext {
+  padding: 1.25vw;
+}
+
+.appgriditem {
+  font-size: 2vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 18vw;
+  height: 5vw;
+  vertical-align: middle;
+  margin: auto;
+  color: #fffcf9;
+  background-color: rgb(151, 146, 146);
+}
+
+.appgriditem:hover {
+  cursor: -webkit-grab;
+}
+
+.appgridlist {
+  padding: 5px 0 0 0;
+  font-size: 4vw;
+  border: 2px white;
+  border-radius: 6px;
+  width: 20vw;
+  height: 35vw;
+  vertical-align: middle;
+  margin: auto;
+  color: #ffffff;
+  background-color: rgb(255, 255, 255);
+  list-style-type: none;
+}
