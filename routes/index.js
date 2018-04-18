@@ -11,7 +11,16 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next){
-  res.redirect('/home');
+  		// you might like to do a database look-up or something more scalable here
+      if (req.body.username && req.body.username === 'user' && req.body.password && req.body.password === 'pass') {
+        req.session.authenticated = true;
+        req.session.user = req.body.username;
+        res.redirect('/home');
+      } else {
+        req.flash('error', 'Username and password are incorrect');
+        res.redirect('/login');
+      }
+  //res.redirect('/home');
 });
 
 router.get('/login/signup', function(req, res, next){
@@ -20,6 +29,7 @@ router.get('/login/signup', function(req, res, next){
 
 router.get('/home', function(req, res, next){
   res.render('home', { title: 'Track My Path' });
+  console.log("User currently logged in: " + req.session.user);
 });
 
 router.get('/resumebuilder', function(req, res, next){

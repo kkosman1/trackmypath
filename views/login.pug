@@ -5,18 +5,18 @@ block content
     img(src="../images/logo.png")
     div(class="login")
       div(align="center")
-        form(class="form-horizontal" method="POST")
+        form(class="form-horizontal" method="post")
           div(class="form-group")
             div(class="col-sm-3" align="right")
               label(class="control-label" for="username") Username
             div(class="col-sm-9")
-              input(type="text" class="form-control" id="username")
+              input(type="text" class="form-control" name="username")
           div(class="form-group")
             div(class="col-sm-3" align="right") 
               label(class="control-label" for="password") Password
             div(class="col-sm-9")
-              input(type="password" class="form-control" id="password")
+              input(type="password" class="form-control" name="password")
           button(onclick="window.location.href='/login/signup'" type="button" class="btn btn-link") Create New Account
           div(align="right")
-            button(type="submit" class="btn btn-default") Sign In >
+            input(type="submit" class="btn btn-default" value="Sign In >") 
     
