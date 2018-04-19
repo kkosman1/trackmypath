@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+//controllers
+var resume_controller = require('../controllers/resumebuilderController');
+var interests_controller = require('../controllers/interestsController');
+var app_controller = require('../controllers/apptrackerController');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.redirect('/login');
@@ -20,7 +25,6 @@ router.post('/login', function(req, res, next){
         req.flash('error', 'Username and password are incorrect');
         res.redirect('/login');
       }
-  //res.redirect('/home');
 });
 
 router.get('/login/signup', function(req, res, next){
@@ -32,16 +36,10 @@ router.get('/home', function(req, res, next){
   console.log("User currently logged in: " + req.session.user);
 });
 
-router.get('/resumebuilder', function(req, res, next){
-  res.render('resumebuilder', { title: 'Track My Path' });
-});
+router.get('/resumebuilder', resume_controller.resumebuilder_get);
 
-router.get('/interests', function(req, res, next){
-  res.render('interests', { title: 'Track My Path' });
-});
+router.get('/interests', interests_controller.interests_get);
 
-router.get('/apptracker', function(req, res, next){
-  res.render('apptracker', { title: 'Track My Path' });
-});
+router.get('/apptracker', app_controller.apptracker_get);
 
 module.exports = router;
