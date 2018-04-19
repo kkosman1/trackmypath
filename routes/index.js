@@ -1,5 +1,18 @@
 var express = require('express');
 var router = express.Router();
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "admin",
+  database: "trackMyPath"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 
 //controllers
 var resume_controller = require('../controllers/resumebuilderController');
@@ -16,15 +29,16 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next){
-  		// you might like to do a database look-up or something more scalable here
-      if (req.body.username && req.body.username === 'user' && req.body.password && req.body.password === 'pass') {
-        req.session.authenticated = true;
-        req.session.user = req.body.username;
-        res.redirect('/home');
-      } else {
-        req.flash('error', 'Username and password are incorrect');
-        res.redirect('/login');
-      }
+  con.query('SELECT * FROM users WHERE email=? AND password=?',[req.body.username, req.body.password], function(err,result){
+    if(result[0]){
+      req.session.authenticated = true;
+      req.session.user = req.body.username;
+      res.redirect('/home');
+    } else {
+      req.flash('error', 'Username and password are incorrect');
+      res.redirect('/login');
+    }
+  })
 });
 
 router.get('/login/signup', function(req, res, next){
