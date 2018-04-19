@@ -3,15 +3,36 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var flash = require('connect-flash');
 
 var indexRouter = require('./routes/index');
 
 var app = express();
 
+function checkAuth (req, res, next) {
+	console.log('checkAuth ' + req.url);
+
+	// don't serve /secure to those not logged in
+	// you should add to this list, for each and every secure url
+	if (req.url === '/secure' && (!req.session || !req.session.authenticated)) {
+		res.render('unauthorised', { status: 403 });
+		return;
+  }
+
+	next();
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(flash());
+app.use(checkAuth);
+app.use(session({ secret: 'example', resave: true, saveUninitialized: true }));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

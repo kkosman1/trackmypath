@@ -13,7 +13,7 @@ block content
                             div(class='appgridheadertext')                           
                                 h4 TO DO
                         div(class="col-sm-4")
-                            i(class="fas fa-plus")
+                            i(class="fas fa-plus" type="button" class="btn btn-link" data-toggle="modal" data-target="#newItemModal")
                 ul(id='todolist' class='appgridlist')
                     li(class='appgriditem') Common App
         div(class="col-sm-3")
@@ -29,6 +29,20 @@ block content
                         h4 COMPLETED
                 ul(id='completedlist' class='appgridlist')
         div(class="col-sm-1")
+
+        div(class="modal fade" id="newItemModal" role="dialog")
+            div(class="modal-dialog modal-lg")
+                div(class="modal-content")
+                    div(class="modal-header")
+                        div(class="modal-title")
+                            h4 Add Item
+                    div(class="modal-body")
+                        h4 This is a large modal.
+                    div(class="modal-footer")
+                        button(type="button" class="btn btn-default" data-dismiss="modal")
+                            h4 Close
+                        button(type="button" class="btn btn-default" data-dismiss="modal")
+                            h4 Save
 
         script. 
             $("#todolist").sortable({connectWith: ".appgridlist"});
