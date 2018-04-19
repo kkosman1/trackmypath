@@ -45,6 +45,25 @@ router.get('/login/signup', function(req, res, next){
   res.render('signup', { title: 'Track My Path' });
 });
 
+router.post('/login/signup', function(req, res, next){
+  if(req.body.firstname && req.body.lastname && req.body.email && req.body.password && req.body.grade) {
+    var sql = "INSERT INTO users (first_name, last_name, email, password, grade) VALUES (?,?,?,?,?)";
+    con.query(sql,[req.body.firstname, req.body.lastname, req.body.email, req.body.password, req.body.grade], function(err,result){
+      if(err){
+        req.flash('error', 'Username and password are incorrect');
+        res.redirect('/login/signup');
+      } else {
+        req.session.authenticated = true;
+        req.session.user = req.body.email;
+        res.redirect('/home');
+      }
+    })
+  }
+  else{
+    res.render('signup', { title: 'Track My Path' });
+  }
+});
+
 router.get('/home', function(req, res, next){
   res.render('home', { title: 'Track My Path' });
   console.log("User currently logged in: " + req.session.user);
@@ -55,5 +74,10 @@ router.get('/resumebuilder', resume_controller.resumebuilder_get);
 router.get('/interests', interests_controller.interests_get);
 
 router.get('/apptracker', app_controller.apptracker_get);
+
+router.get('/logout', function (req, res, next) {
+  delete req.session.authenticated;
+  res.redirect('/');
+});
 
 module.exports = router;
