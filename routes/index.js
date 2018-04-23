@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 
+const jsdom = require("jsdom");
+const { window } = new jsdom.JSDOM(`...`);
+var $ = require("jquery")(window);
+
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -46,11 +50,12 @@ router.get('/login/signup', function(req, res, next){
 });
 
 router.post('/login/signup', function(req, res, next){
+
   if(req.body.firstname && req.body.lastname && req.body.email && req.body.password && req.body.grade) {
     var sql = "INSERT INTO users (first_name, last_name, email, password, grade) VALUES (?,?,?,?,?)";
     con.query(sql,[req.body.firstname, req.body.lastname, req.body.email, req.body.password, req.body.grade], function(err,result){
       if(err){
-        req.flash('error', 'Username and password are incorrect');
+        console.log("ERROR:" + err);
         res.redirect('/login/signup');
       } else {
         req.session.authenticated = true;
@@ -60,13 +65,46 @@ router.post('/login/signup', function(req, res, next){
     })
   }
   else{
+    console.log("here");
     res.render('signup', { title: 'Track My Path' });
   }
 });
 
 router.get('/home', function(req, res, next){
-  res.render('home', { title: 'Track My Path' });
   console.log("User currently logged in: " + req.session.user);
+
+  // Set grade progress bar to correct grade
+  con.query('SELECT grade FROM users WHERE email=?',[req.session.user], function(err,result){
+    if(result[0]){
+      console.log("Grade: " + result[0].grade);
+      switch(result[0].grade){
+        case 9:
+          res.render('home', { grade: "45", title: 'Track My Path' });
+          break;
+        case 10:
+          res.render('home', { grade: "65", title: 'Track My Path' });
+          break;
+        case 11:
+          res.render('home', { grade: "80", title: 'Track My Path' });
+          break;
+        case 12:
+          res.render('home', { grade: "100", title: 'Track My Path' });
+          break;
+        case "Junior High":
+          res.render('home', { grade: "30", title: 'Track My Path' });
+          break;
+        case "Elementary School":
+          res.render('home', { grade: "15", title: 'Track My Path' });
+          break;
+        default:
+          res.render('home', { grade: "0", title: 'Track My Path' });
+          break;
+      }
+    } else {
+      req.flash('error', 'Username is incorrect');
+      res.redirect('/login');
+    }
+  })
 });
 
 router.get('/resumebuilder', resume_controller.resumebuilder_get);

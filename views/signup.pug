@@ -17,11 +17,6 @@ block content
                         input(type="text" class="form-control" name="lastname")
                 div(class="form-group")
                     div(class="col-sm-3" align="right")
-                        label(class="control-label" for="grade") Grade
-                    div(class="col-sm-9")
-                        input(type="text" class="form-control" name="grade")
-                div(class="form-group")
-                    div(class="col-sm-3" align="right")
                         label(class="control-label" for="email") Email
                     div(class="col-sm-9")
                         input(type="email" class="form-control" name="email")
@@ -30,6 +25,18 @@ block content
                         label(class="control-label" for="password") Password
                     div(class="col-sm-9")
                         input(type="password" class="form-control" name="password")
+                div(class="form-group")
+                    div(class="col-sm-3" align="right")
+                        label(class="control-label" for="grade") Grade
+                    div(class="col-sm-9")
+                        //input(type="text" class="form-control" name="grade")
+                        select(class="form-control" name="grade")
+                            option(value="9") 9
+                            option(value="10") 10
+                            option(value="11") 11
+                            option(value="12") 12
+                            option(value="Elementary School") Elementary School
+                            option(value="Junior High") Junior High
                 br
                 div(class="row")
                     div(style="float:left; padding-left:15px;")
