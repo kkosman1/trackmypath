@@ -86,19 +86,16 @@ router.get('/home', function(req, res, next){
     if(result[0]){
       console.log("Grade: " + result[0].grade);
       switch(result[0].grade){
-        default:
-          res.render('home', { grade: "0", title: 'Track My Path' });
-          break;
-        case 9:
+        case "9":
           res.render('home', { grade: "45", title: 'Track My Path' });
           break;
-        case 10:
+        case "10":
           res.render('home', { grade: "65", title: 'Track My Path' });
           break;
-        case 11:
+        case "11":
           res.render('home', { grade: "80", title: 'Track My Path' });
           break;
-        case 12:
+        case "12":
           res.render('home', { grade: "100", title: 'Track My Path' });
           break;
         case "Junior High":
@@ -106,6 +103,9 @@ router.get('/home', function(req, res, next){
           break;
         case "Elementary School":
           res.render('home', { grade: "15", title: 'Track My Path' });
+          break;
+        default:
+          res.render('home', { grade: "0", title: 'Track My Path' });
           break;
       }
     } else {
