@@ -6,10 +6,18 @@ const jsdom = require("jsdom");
 const { window } = new jsdom.JSDOM(`...`);
 var $ = require("jquery")(window);
 
+// var con = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "admin",
+//   database: "trackMyPath"
+// });
+
 var con = mysql.createConnection({
-  host: "localhost",
+  host: "trackmypath.cycosjtwm6yd.us-east-2.rds.amazonaws.com",
+  port: 3306,
   user: "root",
-  password: "admin",
+  password: "admin123",
   database: "trackMyPath"
 });
 
@@ -78,6 +86,9 @@ router.get('/home', function(req, res, next){
     if(result[0]){
       console.log("Grade: " + result[0].grade);
       switch(result[0].grade){
+        default:
+          res.render('home', { grade: "0", title: 'Track My Path' });
+          break;
         case 9:
           res.render('home', { grade: "45", title: 'Track My Path' });
           break;
@@ -95,9 +106,6 @@ router.get('/home', function(req, res, next){
           break;
         case "Elementary School":
           res.render('home', { grade: "15", title: 'Track My Path' });
-          break;
-        default:
-          res.render('home', { grade: "0", title: 'Track My Path' });
           break;
       }
     } else {
