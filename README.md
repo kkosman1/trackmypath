@@ -5,7 +5,7 @@ Kim Kosman, Katie Schermerhorn, Sarah Olson, Sarah Drumm, Connor Higgins, Michae
 
 ----
 ## Overview
-TRack My Path is a project for the [Robinson Community Learning Center](https://rclc.nd.edu/) which helps students through the college discernment and application process. It runs on a local server via [NodeJS](https://nodejs.org/en/) and utilizes the [JQuery](https://jquery.com/) library.
+Track My Path is a project for the [Robinson Community Learning Center](https://rclc.nd.edu/) which helps students through the college discernment and application process. It runs on a local server via [NodeJS](https://nodejs.org/en/) and utilizes the [JQuery](https://jquery.com/) library.
 
 ----
 ## Files
