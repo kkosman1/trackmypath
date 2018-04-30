@@ -23,7 +23,7 @@ body {
 }
 
 .page-content {
-  margin: 0px 10px 0px 10px;
+  margin: 0% 10% 0% 10%;
 }
 
 .login {
@@ -39,7 +39,7 @@ body {
 
 .signup {
   border-radius: 6px;
-  width: 500px;
+  width: 600px;
   padding: 15px;
   background: rgba(255, 255, 255, .45);
 }
@@ -159,6 +159,7 @@ body {
 
 .appgriditem {
   font-size: 2vw;
+  padding: 10px;
   border: 2px white;
   border-radius: 6px;
   width: 18vw;
@@ -174,7 +175,7 @@ body {
 }
 
 .appgridlist {
-  padding: 5px 0 0 0;
+  padding: 10px;
   font-size: 4vw;
   border: 2px white;
   border-radius: 6px;

@@ -6,7 +6,7 @@ block content
         navbarEl.classList.add("active");
     div(class="row")
         div(class="col-sm-12")
-            h2 Welcome, #{username}!
+            h2(style="font-size:36px") Welcome, #{username}!
             br
     div(class="row")
         div(class="col-sm-12")
@@ -15,34 +15,39 @@ block content
                     div(align="center")
                         div(style="font-size:2em;")
                             i(class="far fa-file-alt")
-                        h4 Resume Builder
+                        h4(style="font-size:24px") Resume Builder
             div(class="col-sm-4 homegrid" onclick="window.location.href='/interests'")
                 div(class="homegrid-inner")
                     div(align="center")
                         div(style="font-size:2em;")
                             i(class="far fa-thumbs-up")
-                        h4 Interests & Resources
+                        h4(style="font-size:24px") Interests & Resources
             div(class="col-sm-4 homegrid" onclick="window.location.href='/apptracker'")
                 div(align="center")
                     div(style="font-size:2em;")
                         i(class="far fa-check-circle")
-                    h4 Application Tracker
+                    h4(style="font-size:24px") Application Tracker
     br
     br
     br
-    div(class="row")
-        div(class="col-sm-2 progress-text")
-            h4 Elementary
-        div(class="col-sm-2 progress-text")
-            h4 Junior High
-        div(class="col-sm-2 progress-text")
-            h4 Grade 9
-        div(class="col-sm-2 progress-text")
-            h4 Grade 10        
-        div(class="col-sm-2 progress-text")
-            h4 Grade 11
-        div(class="col-sm-2 progress-text")
-            h4 Grade 12
+
+    div(class="row" style="text-align:center")
+        div(class="col-sm-2 progress-text" data-toggle="popover" data-placement="top" data-content="Start logging your activities with the Resume Builder." data-trigger="hover")
+            h4(style="font-size:18px") Elementary
+        div(class="col-sm-2 progress-text" data-toggle="popover" data-placement="top" data-content="Start logging your activities with the Resume Builder." data-trigger="hover")
+            h4(style="font-size:18px") Junior High
+        div(class="col-sm-2 progress-text" data-toggle="popover" data-placement="top" data-content="Jot down your interests and learn about colleges in the Interests and Resources section." data-trigger="hover")
+            h4(style="font-size:18px") Grade 9
+        div(class="col-sm-2 progress-text" data-toggle="popover" data-placement="top" data-content="Jot down your interests and learn about colleges in the Interests and Resources section." data-trigger="hover")
+            h4(style="font-size:18px") Grade 10        
+        div(class="col-sm-2 progress-text" data-toggle="popover" data-placement="top" data-content="Begin applying to colleges and scholarships." data-trigger="hover")
+            h4(style="font-size:18px") Grade 11
+        div(class="col-sm-2 progress-text" data-toggle="popover" data-placement="top" data-content="Begin applying to colleges and scholarships." data-trigger="hover")
+            h4(style="font-size:18px") Grade 12
+
     div(class="progress")
         div(id="gradeProgress" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow=grade aria-valuemin="0" aria-valuemax="100" style="width:"+grade+"%")
+        
+    script.
+        $('[data-toggle="popover"]').popover();
  
