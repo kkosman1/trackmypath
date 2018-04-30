@@ -37,7 +37,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Track My Path', error: 'Username and password are incorrect' });
+  res.render('login', { title: 'Track My Path' });
 });
 
 router.post('/login', function(req, res, next){
@@ -48,7 +48,7 @@ router.post('/login', function(req, res, next){
       res.redirect('/home');
     } else {
       req.flash('error', 'Username and password are incorrect');
-      res.redirect('/login');
+      res.render('login', { title: 'Track My Path', error: 'Username/password is incorrect'});
     }
   })
 });
