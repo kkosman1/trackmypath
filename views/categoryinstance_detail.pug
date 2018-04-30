@@ -1,3 +1,13 @@
 extends layout
+
 block content
-  h1 ID: #{categoryinstance._id}
+  script.
+      var navbarEl = document.getElementById("resume");
+      navbarEl.classList.add("active");
+  div(class="row")
+      div(class="col-sm-12" align="center")
+      if items
+          each item in items
+              p #{item.item}
+              p #{item.item_time}
+              p #{item.item_desc}

@@ -18,7 +18,7 @@ var con = mysql.createConnection({
 
 exports.resumebuilder_get = function(req, res){
 
-    con.query('SELECT category FROM resumeBuilder WHERE email=? AND active=1',[req.session.email], function(err,result){
+    con.query('SELECT DISTINCT category FROM resumeBuilder WHERE email=? AND active=1',[req.session.email], function(err,result){
         if(result[0]){
             var categories = [];
 
@@ -48,6 +48,21 @@ exports.categoryinstance_detail = function(req, res, next) {
     //      return next(err);
     //    }
       // Successful, so render.
-      res.render('categoryinstance_detail', { title: 'Category:', categoryinstance:  req.params.id});
+      //res.render('categoryinstance_detail', { title: 'Category:', categoryinstance:  req.params.id});
     //})
+    con.query('SELECT item, item_time, item_desc FROM resumeBuilder WHERE email=? AND category=? AND active=1 AND item_active=1',[req.session.email, req.params.id], function(err,result){
+        if(result[0]){
+            var items = [];
+
+            Object.keys(result).forEach(function(key) {
+                var row = result[key];
+                items.push(row);
+            });
+            console.log(items);
+
+            res.render('categoryinstance_detail', { title: 'Track My Path', items: items });
+
+        } else {
+            res.render('categoryinstance_detail', { title: 'Track My Path'});        }
+    })
   };
