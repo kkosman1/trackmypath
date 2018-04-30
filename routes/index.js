@@ -83,7 +83,7 @@ router.get('/home', function(req, res, next){
   console.log("User currently logged in: " + req.session.user);
 
   // Set grade progress bar to correct grade
-  con.query('SELECT grade FROM users WHERE email=?',[req.session.user], function(err,result){
+  con.query('SELECT grade FROM users WHERE email=?',[req.session.email], function(err,result){
     if(result[0]){
       console.log("Grade: " + result[0].grade);
       switch(result[0].grade){
