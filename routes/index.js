@@ -44,10 +44,10 @@ router.post('/login', function(req, res, next){
   con.query('SELECT * FROM users WHERE email=? AND password=?',[req.body.username, req.body.password], function(err,result){
     if(result[0]){
       req.session.authenticated = true;
-      req.session.user = req.body.username;
+      req.session.email = req.body.username;
+      req.session.user = result[0].first_name + " " + result[0].last_name;
       res.redirect('/home');
     } else {
-      req.flash('error', 'Username and password are incorrect');
       res.render('login', { title: 'Track My Path', error: 'Username/password is incorrect'});
     }
   })
@@ -67,7 +67,8 @@ router.post('/login/signup', function(req, res, next){
         res.redirect('/login/signup');
       } else {
         req.session.authenticated = true;
-        req.session.user = req.body.email;
+        req.session.email = req.body.email;
+        req.session.user = req.body.firstname + " " + req.body.lastname;
         res.redirect('/home');
       }
     })
@@ -82,7 +83,7 @@ router.get('/home', function(req, res, next){
   console.log("User currently logged in: " + req.session.user);
 
   // Set grade progress bar to correct grade
-  con.query('SELECT grade FROM users WHERE email=?',[req.session.user], function(err,result){
+  con.query('SELECT grade FROM users WHERE email=?',[req.session.email], function(err,result){
     if(result[0]){
       console.log("Grade: " + result[0].grade);
       switch(result[0].grade){
@@ -122,8 +123,7 @@ router.get('/interests', interests_controller.interests_get);
 router.get('/apptracker', app_controller.apptracker_get);
 
 router.get('/logout', function (req, res, next) {
-  req.session.authenticated = false;
-  req.session.user = null;
+  req.session.destroy();
   res.redirect('/');
 });
 
