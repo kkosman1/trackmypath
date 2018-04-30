@@ -18,19 +18,19 @@ html
           span(class="icon-bar")
           span(class="icon-bar")
           span(class="icon-bar")
-        a(class="navbar-brand") TrackMyPath
+        a(class="navbar-brand" style="font-size:21px") TrackMyPath
       div(class="collapse navbar-collapse" id="navbar-collapse")
         ul(class="nav navbar-nav")
-          li(id="home")
+          li(class="nav-item" id="home")
             a(href="/home") Home
-          li(id="resume")
+          li(class="nav-item" id="resume")
             a(href="/resumebuilder") Resume Builder
-          li(id="interests")
+          li(class="nav-item" id="interests")
             a(href="/interests") Interests & Resources
-          li(id="apptracker")
+          li(class="nav-item" id="apptracker")
             a(href="/apptracker") Application Tracker
         ul(class="nav navbar-nav navbar-right")
-          li(class="signout")
+          li(class="nav-item")
             a(href="/logout") Sign Out
     div(class="page-content")
       block content

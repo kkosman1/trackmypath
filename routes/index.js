@@ -69,18 +69,17 @@ router.post('/login/signup', function(req, res, next){
         req.session.authenticated = true;
         req.session.email = req.body.email;
         req.session.user = req.body.firstname + " " + req.body.lastname;
+        initPopulateRB(req.session.email);
         res.redirect('/home');
       }
     })
   }
   else{
-    console.log("here");
     res.render('signup', { title: 'Track My Path' });
   }
 });
 
 router.get('/home', function(req, res, next){
-  console.log("User currently logged in: " + req.session.user);
 
   // Set grade progress bar to correct grade
   con.query('SELECT grade FROM users WHERE email=?',[req.session.email], function(err,result){
@@ -88,29 +87,28 @@ router.get('/home', function(req, res, next){
       console.log("Grade: " + result[0].grade);
       switch(result[0].grade){
         case "9":
-          res.render('home', { grade: "45", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "40", title: 'Track My Path', username: req.session.user });
           break;
         case "10":
-          res.render('home', { grade: "65", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "60", title: 'Track My Path', username: req.session.user });
           break;
         case "11":
           res.render('home', { grade: "80", title: 'Track My Path', username: req.session.user });
           break;
         case "12":
-          res.render('home', { grade: "100", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "80", title: 'Track My Path', username: req.session.user });
           break;
         case "Junior High":
-          res.render('home', { grade: "30", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "20", title: 'Track My Path', username: req.session.user });
           break;
         case "Elementary School":
-          res.render('home', { grade: "15", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "10", title: 'Track My Path', username: req.session.user });
           break;
         default:
           res.render('home', { grade: "0", title: 'Track My Path', username: req.session.user });
           break;
       }
     } else {
-      req.flash('error', 'Username is incorrect');
       res.redirect('/login');
     }
   })
@@ -130,4 +128,20 @@ router.get('/logout', function (req, res, next) {
   res.redirect('/');
 });
 
-module.exports = router;
+function initPopulateRB(email){
+  var sql = "INSERT INTO resumeBuilder (email, category) VALUES ?";
+  var values = [
+    [email, 'Service'],
+    [email, 'Leadership'],
+    [email, 'Sports'],
+    [email, 'Test Scores'],
+    [email, 'Awards']
+  ];
+  con.query(sql, [values], function (err, result) {
+    if (err) throw err;
+    console.log("Number of records inserted: " + result.affectedRows);
+  });
+};
+
+module.exports = {router: router, con: con};
+

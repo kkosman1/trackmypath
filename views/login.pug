@@ -9,26 +9,25 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css")
     script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js")
-
   body
     div(align="center")
       img(src="../images/logo.png")
       div(class="login")
         div(align="center")
           if error
-            p(style="color: red;") **#{error}**
+            p(class="error-message") **#{error}**
           form(class="form-horizontal" method="post")
             div(class="form-group")
               div(class="col-sm-3" align="right")
-                label(class="control-label" for="username") Username
+                label(class="control-label" for="username" style="font-size:16px") Username
               div(class="col-sm-9")
                 input(type="text" class="form-control" name="username")
             div(class="form-group")
               div(class="col-sm-3" align="right") 
-                label(class="control-label" for="password") Password
+                label(class="control-label" for="password" style="font-size:16px") Password
               div(class="col-sm-9")
                 input(type="password" class="form-control" name="password")
-            button(onclick="window.location.href='/login/signup'" type="button" class="btn btn-link") Create New Account
+            button(onclick="window.location.href='/login/signup'" type="button" class="btn btn-link" style="font-size:14px") Create New Account
             div(align="right")
               input(type="submit" class="btn btn-default" value="Sign In >") 
     

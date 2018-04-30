@@ -11,24 +11,35 @@ body {
   padding-right: 0px;
 }
 
-.signout:hover {
+.nav-item {
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.nav-item:hover {
   background-color: lightgray;
 }
 
 .page-content {
-  margin: 0px 10px 0px 10px;
+  margin: 0% 10% 0% 10%;
 }
 
-div.login {
-  border-radius: 6px;
-  width: 400px;
-  padding: 15px;
-  background: rgba(255, 255, 255, .45);
-}
-
-div.signup {
+.login {
   border-radius: 6px;
   width: 500px;
+  padding: 15px;
+  background: rgba(70, 72, 102, .3);
+}
+
+.error-message {
+  color: rgb(216, 50, 50);
+}
+
+.signup {
+  border-radius: 6px;
+  width: 600px;
   padding: 15px;
   background: rgba(255, 255, 255, .45);
 }
@@ -42,6 +53,10 @@ div.signup {
   height: 50vh;
   color: whitesmoke;
   background-color: #464866;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
 }
 
 .homegrid:hover {
@@ -64,37 +79,50 @@ div.signup {
 }
 
 .resumegrid, .interestsgrid {
-  font-size: 3vw;
-  border: 2px white;
+  font-size: 25px;
+  border: 2px;
   border-radius: 6px;
-  width: 20vw;
-  height: 15vw;
+  width: 25vw;
+  height: 17vw;
+  max-width: 300px;
+  max-height: 200px;
   vertical-align: middle;
-  color: #fffcf9;
-  background-color: rgb(151, 146, 146);
+  color: whitesmoke;
+  background-color: #464866;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
 }
 
 .resumegrid:hover, .interestsgrid:hover {
-  background-color: rgb(194, 190, 190);
+  color: black;
+  background-color: #f7c18ed7;
 }
 
 .resumeaddgrid, .interestsaddgrid {
-  font-size: 4vw;
-  border: 4px rgb(151, 146, 146) solid;
+  font-size: 25px;
+  border: 4px solid gray;
   border-radius: 6px;
-  width: 20vw;
-  height: 15vw;
+  width: 25vw;
+  height: 17vw;
+  max-width: 300px;
+  max-height: 200px;
   vertical-align: middle;
-  color: rgb(151, 146, 146);
+  color: gray;
   background-color: transparent;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
 }
 
 .resumeaddgrid:hover, interestsaddgrid:hover {
-  background-color: rgb(194, 190, 190);
+  background-color: #f7c18ed7;
 }
 
 .gridbreak {
-  height: 15px;
+  height: 30px;
 }
 
 .btn-link {
@@ -131,6 +159,7 @@ div.signup {
 
 .appgriditem {
   font-size: 2vw;
+  padding: 10px;
   border: 2px white;
   border-radius: 6px;
   width: 18vw;
@@ -146,7 +175,7 @@ div.signup {
 }
 
 .appgridlist {
-  padding: 5px 0 0 0;
+  padding: 10px;
   font-size: 4vw;
   border: 2px white;
   border-radius: 6px;

@@ -4,28 +4,26 @@ block content
     script.
         var navbarEl = document.getElementById("resume");
         navbarEl.classList.add("active");
-    div(class="col-sm-10")
-        h2 Resume Builder
     div(class="row")
-        div(class="col-sm-1")
-        div(class="col-sm-11")
+        div(class="col-sm-12" align="center")
             br
             br
-            div(class="row")
+            - var n = 0;
+            each cat in categories
+                if n % 3 == 0
+                    div(class="row")
+                    div(class="gridbreak")
+                        div(class="col-sm-12")
+                - n++
                 div(class="col-sm-4")
-                    button(class="resumegrid" onclick="window.location.href='/resumebuilder/service'") Service
-                div(class="col-sm-4")
-                    button(class="resumegrid" onclick="window.location.href='/resumebuilder/leadership'") Leadership
-                div(class="col-sm-4")
-                    button(class="resumegrid" onclick="window.location.href='/resumebuilder/sports'") Sports
-            div(class="gridbreak")
-                div(class="col-sm-12")
-            div(class="row")
-                div(class="col-sm-4")
-                    button(class="resumegrid" onclick="window.location.href='/resumebuilder/testscores'") Test Scores 
-                div(class="col-sm-4")
-                    button(class="resumegrid" onclick="window.location.href='/resumebuilder/awards'") Awards
-                div(class="col-sm-4")
-                    button(class="resumeaddgrid")
-                        div(style="font-size:1.5em;")
-                            i(class="fas fa-plus")
+                    button(class="resumegrid" style="font-size:36px") #{cat}
+
+            if n % 3 == 0
+                div(class="row")
+                div(class="gridbreak")
+                    div(class="col-sm-12")
+
+            div(class="col-sm-4")
+                button(class="resumeaddgrid")
+                    div(style="font-size:1.5em;")
+                        i(class="fas fa-plus")
