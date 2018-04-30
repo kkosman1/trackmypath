@@ -39,14 +39,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/login', indexRouter);
-app.use('/login/signup', indexRouter);
-app.use('/logout', indexRouter);
-app.use('/home', indexRouter);
-app.use('/resumebuilder', indexRouter);
-app.use('/interests', indexRouter);
-app.use('/apptracker', indexRouter);
+app.use('/', indexRouter.router);
+app.use('/login', indexRouter.router);
+app.use('/login/signup', indexRouter.router);
+app.use('/logout', indexRouter.router);
+app.use('/home', indexRouter.router);
+app.use('/resumebuilder', indexRouter.router);
+app.use('/interests', indexRouter.router);
+app.use('/apptracker', indexRouter.router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
