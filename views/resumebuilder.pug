@@ -9,20 +9,38 @@ block content
             br
             br
             div(class="row")
+            - var n = 0;
+            each cat in categories
+                - n++
                 div(class="col-sm-4")
-                    button(class="resumegrid" style="font-size:36px") Service
-                div(class="col-sm-4")
-                    button(class="resumegrid" style="font-size:36px") Leadership
-                div(class="col-sm-4")
-                    button(class="resumegrid" style="font-size:36px") Sports
-            div(class="gridbreak")
-                div(class="col-sm-12")
-            div(class="row")
-                div(class="col-sm-4")
-                    button(class="resumegrid" style="font-size:36px") Test Scores 
-                div(class="col-sm-4")
-                    button(class="resumegrid" style="font-size:36px") Awards
-                div(class="col-sm-4")
-                    button(class="resumeaddgrid")
-                        div(style="font-size:1.5em;")
-                            i(class="fas fa-plus")
+                    button(class="resumegrid" style="font-size:36px") #{cat}
+                if n % 3 == 0
+                    div(class="gridbreak")
+                        div(class="col-sm-12")
+                    div(class="row")
+
+            div(class="col-sm-4")
+                button(class="resumeaddgrid")
+                    div(style="font-size:1.5em;")
+                        i(class="fas fa-plus")
+
+
+
+
+            //-     div(class="col-sm-4")
+            //-         button(class="resumegrid" style="font-size:36px") Service
+            //-     div(class="col-sm-4")
+            //-         button(class="resumegrid" style="font-size:36px") Leadership
+            //-     div(class="col-sm-4")
+            //-         button(class="resumegrid" style="font-size:36px") Sports
+            //- div(class="gridbreak")
+            //-     div(class="col-sm-12")
+            //- div(class="row")
+            //-     div(class="col-sm-4")
+            //-         button(class="resumegrid" style="font-size:36px") Test Scores 
+            //-     div(class="col-sm-4")
+            //-         button(class="resumegrid" style="font-size:36px") Awards
+            //-     div(class="col-sm-4")
+            //-         button(class="resumeaddgrid")
+            //-             div(style="font-size:1.5em;")
+            //-                 i(class="fas fa-plus")
