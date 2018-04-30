@@ -48,7 +48,7 @@ router.post('/login', function(req, res, next){
       res.redirect('/home');
     } else {
       req.flash('error', 'Username and password are incorrect');
-      res.redirect('/login');
+      res.render('login', { title: 'Track My Path', error: 'Username/password is incorrect'});
     }
   })
 });
@@ -87,25 +87,25 @@ router.get('/home', function(req, res, next){
       console.log("Grade: " + result[0].grade);
       switch(result[0].grade){
         case "9":
-          res.render('home', { grade: "45", title: 'Track My Path' });
+          res.render('home', { grade: "45", title: 'Track My Path', username: req.session.user });
           break;
         case "10":
-          res.render('home', { grade: "65", title: 'Track My Path' });
+          res.render('home', { grade: "65", title: 'Track My Path', username: req.session.user });
           break;
         case "11":
-          res.render('home', { grade: "80", title: 'Track My Path' });
+          res.render('home', { grade: "80", title: 'Track My Path', username: req.session.user });
           break;
         case "12":
-          res.render('home', { grade: "100", title: 'Track My Path' });
+          res.render('home', { grade: "100", title: 'Track My Path', username: req.session.user });
           break;
         case "Junior High":
-          res.render('home', { grade: "30", title: 'Track My Path' });
+          res.render('home', { grade: "30", title: 'Track My Path', username: req.session.user });
           break;
         case "Elementary School":
-          res.render('home', { grade: "15", title: 'Track My Path' });
+          res.render('home', { grade: "15", title: 'Track My Path', username: req.session.user });
           break;
         default:
-          res.render('home', { grade: "0", title: 'Track My Path' });
+          res.render('home', { grade: "0", title: 'Track My Path', username: req.session.user });
           break;
       }
     } else {
@@ -122,7 +122,8 @@ router.get('/interests', interests_controller.interests_get);
 router.get('/apptracker', app_controller.apptracker_get);
 
 router.get('/logout', function (req, res, next) {
-  delete req.session.authenticated;
+  req.session.authenticated = false;
+  req.session.user = null;
   res.redirect('/');
 });
 
