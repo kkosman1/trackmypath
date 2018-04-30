@@ -69,18 +69,17 @@ router.post('/login/signup', function(req, res, next){
         req.session.authenticated = true;
         req.session.email = req.body.email;
         req.session.user = req.body.firstname + " " + req.body.lastname;
+        initPopulateRB(req.session.email);
         res.redirect('/home');
       }
     })
   }
   else{
-    console.log("here");
     res.render('signup', { title: 'Track My Path' });
   }
 });
 
 router.get('/home', function(req, res, next){
-  console.log("User currently logged in: " + req.session.user);
 
   // Set grade progress bar to correct grade
   con.query('SELECT grade FROM users WHERE email=?',[req.session.email], function(err,result){
@@ -110,7 +109,6 @@ router.get('/home', function(req, res, next){
           break;
       }
     } else {
-      req.flash('error', 'Username is incorrect');
       res.redirect('/login');
     }
   })
@@ -127,4 +125,20 @@ router.get('/logout', function (req, res, next) {
   res.redirect('/');
 });
 
-module.exports = router;
+function initPopulateRB(email){
+  var sql = "INSERT INTO resumeBuilder (email, category) VALUES ?";
+  var values = [
+    [email, 'Service'],
+    [email, 'Leadership'],
+    [email, 'Sports'],
+    [email, 'Test Scores'],
+    [email, 'Awards']
+  ];
+  con.query(sql, [values], function (err, result) {
+    if (err) throw err;
+    console.log("Number of records inserted: " + result.affectedRows);
+  });
+};
+
+module.exports = {router: router, con: con};
+
