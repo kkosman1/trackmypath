@@ -4,11 +4,8 @@ block content
     script.
         var navbarEl = document.getElementById("apptracker");
         navbarEl.classList.add("active");
-    div(class="col-sm-10")
-        h2 Application Tracker
     div(class="row")
-        div(class="col-sm-1")
-        div(class="col-sm-11")
+        div(class="col-sm-12" align="center")
             br
             div(class="col-sm-4")
                 div(class='appgrid')
@@ -16,22 +13,22 @@ block content
                         div(class="row")
                             div(class="col-sm-8")
                                 div(class='appgridheadertext')                           
-                                    h4 TO DO
+                                    h4 To Do
                             div(class="col-sm-4")
-                                i(class="fas fa-plus" type="button" class="btn btn-link" data-toggle="modal" data-target="#newItemModal")
+                                i(class="fas fa-plus" class="add-to-do")
                     ul(id='todolist' class='appgridlist')
                         li(class='appgriditem') Common App
             div(class="col-sm-4")
                 div(class='appgrid')
                     div(class='appgridheader')
                         div(class='appgridheadertext')
-                            h4 IN PROGRESS
+                            h4 In Progress
                     ul(id='inprogresslist' class='appgridlist')
             div(class="col-sm-4")
                 div(class='appgrid')
                     div(class='appgridheader')
                         div(class='appgridheadertext')
-                            h4 COMPLETED
+                            h4 Completed
                     ul(id='completedlist' class='appgridlist')
 
         div(class="modal fade" id="newItemModal" role="dialog")
