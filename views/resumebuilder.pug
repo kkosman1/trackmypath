@@ -15,8 +15,9 @@ block content
                     div(class="gridbreak")
                         div(class="col-sm-12")
                 - n++
+                - var dest = "window.location.href='/resumebuilder/"+cat.toLowerCase()+"'"
                 div(class="col-sm-4")
-                    button(class="resumegrid" style="font-size:36px") #{cat}
+                    button(class="resumegrid" style="font-size:36px" onclick=dest) #{cat}
 
             if n % 3 == 0
                 div(class="row")
