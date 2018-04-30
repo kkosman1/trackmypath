@@ -1,49 +1,47 @@
 extends layout
 
 block content
-    div(class="col-med-1" align="left")
-        button(type="submit" onclick="window.location.href='/logout'" class="btn signout") < Sign Out
+    script.
+        var navbarEl = document.getElementById("home");
+        navbarEl.classList.add("active");
     div(class="row")
-        div(class="col-sm-1")
-        div(class="col-sm-11")
+        div(class="col-sm-12")
+            h2 Welcome, #{username}!
             br
-            br
-            div(class="col-sm-3")
-                button(onclick="window.location.href='/resumebuilder'" class="homegrid")
+    div(class="row")
+        div(class="col-sm-12")
+            div(class="col-sm-4 homegrid" onclick="window.location.href='/resumebuilder'")
+                div(class="homegrid-inner")
                     div(align="center")
                         div(style="font-size:2em;")
                             i(class="far fa-file-alt")
                         h4 Resume Builder
-            div(class="col-sm-1")
-            div(class="col-sm-3")
-                button(onclick="window.location.href='/interests'" class="homegrid")
+            div(class="col-sm-4 homegrid" onclick="window.location.href='/interests'")
+                div(class="homegrid-inner")
                     div(align="center")
                         div(style="font-size:2em;")
                             i(class="far fa-thumbs-up")
                         h4 Interests & Resources
-            div(class="col-sm-1")
-            div(class="col-sm-3")
-                button(onclick="window.location.href='/apptracker'" class="homegrid")
-                    div(align="center")
-                        div(style="font-size:2em;")
-                            i(class="far fa-check-circle")
-                        h4 Application Tracker
-            div(class="col-sm-1")
+            div(class="col-sm-4 homegrid" onclick="window.location.href='/apptracker'")
+                div(align="center")
+                    div(style="font-size:2em;")
+                        i(class="far fa-check-circle")
+                    h4 Application Tracker
     br
     br
     br
     div(class="row")
-        div(class="col-sm-2" style="color: rgb(255, 255, 255);")
-            h4 Elementary School
-        div(class="col-sm-2" style="color: rgb(255, 255, 255);")
+        div(class="col-sm-2 progress-text")
+            h4 Elementary
+        div(class="col-sm-2 progress-text")
             h4 Junior High
-        div(class="col-sm-2" style="color: rgb(255, 255, 255);")
+        div(class="col-sm-2 progress-text")
             h4 Grade 9
-        div(class="col-sm-2" style="color: rgb(255, 255, 255);")
+        div(class="col-sm-2 progress-text")
             h4 Grade 10        
-        div(class="col-sm-2" style="color: rgb(255, 255, 255);")
+        div(class="col-sm-2 progress-text")
             h4 Grade 11
-        div(class="col-sm-2" style="color: rgb(255, 255, 255);")
+        div(class="col-sm-2 progress-text")
             h4 Grade 12
     div(class="progress")
         div(id="gradeProgress" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow=grade aria-valuemin="0" aria-valuemax="100" style="width:"+grade+"%")

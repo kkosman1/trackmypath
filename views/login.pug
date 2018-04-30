@@ -1,22 +1,34 @@
-extends layout
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js")
 
-block content
-  div(align="center")
-    img(src="../images/logo.png")
-    div(class="login")
-      div(align="center")
-        form(class="form-horizontal" method="post")
-          div(class="form-group")
-            div(class="col-sm-3" align="right")
-              label(class="control-label" for="username") Username
-            div(class="col-sm-9")
-              input(type="text" class="form-control" name="username")
-          div(class="form-group")
-            div(class="col-sm-3" align="right") 
-              label(class="control-label" for="password") Password
-            div(class="col-sm-9")
-              input(type="password" class="form-control" name="password")
-          button(onclick="window.location.href='/login/signup'" type="button" class="btn btn-link") Create New Account
-          div(align="right")
-            input(type="submit" class="btn btn-default" value="Sign In >") 
+  body
+    div(align="center")
+      img(src="../images/logo.png")
+      div(class="login")
+        div(align="center")
+          if error
+            p(style="color: red;") **#{error}**
+          form(class="form-horizontal" method="post")
+            div(class="form-group")
+              div(class="col-sm-3" align="right")
+                label(class="control-label" for="username") Username
+              div(class="col-sm-9")
+                input(type="text" class="form-control" name="username")
+            div(class="form-group")
+              div(class="col-sm-3" align="right") 
+                label(class="control-label" for="password") Password
+              div(class="col-sm-9")
+                input(type="password" class="form-control" name="password")
+            button(onclick="window.location.href='/login/signup'" type="button" class="btn btn-link") Create New Account
+            div(align="right")
+              input(type="submit" class="btn btn-default" value="Sign In >") 
     
