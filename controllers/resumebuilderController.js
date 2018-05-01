@@ -38,18 +38,6 @@ exports.resumebuilder_get = function(req, res){
 
 // Display details for a specific category
 exports.categoryinstance_detail = function(req, res, next) {
-    //CategoryInstance.findById(req.params.id)
-    //.populate('category')
-    //.exec(function (err, categoryinstance) {
-    //  if (err) { return next(err); }
-    //  if (categoryinstance==null) { // No results.
-    //      var err = new Error('Category copy not found');
-    //      err.status = 404;
-    //      return next(err);
-    //    }
-      // Successful, so render.
-      //res.render('categoryinstance_detail', { title: 'Category:', categoryinstance:  req.params.id});
-    //})
     if(req.session.email == null){
         res.redirect('/logout');
     }
@@ -89,18 +77,33 @@ exports.resumebuilder_post = function(req, res){
 }
 
 exports.categoryinstance_post = function(req, res){
-
     if(req.body.itemname) {
         var sql = "INSERT INTO resumeBuilder (email, category, item, item_time, item_desc, item_active) VALUES (?,?,?,?,?,?)";
         con.query(sql,[req.session.email, req.params.id, req.body.itemname, req.body.itemtime, req.body.itemdescription, 1], function(err,result){
-          if(err){
+            if(err){
             console.log("ERROR:" + err);
             res.redirect('/resumeBuilder/'+req.params.id);
-          } else {
+            } else {
             res.redirect('/resumeBuilder/'+req.params.id);          }
         })
-      }
-      else{
+        }
+        else{
         res.redirect('/resumeBuilder/'+req.params.id);
-      }      
+        } 
+}
+
+exports.categoryinstance_post_delete = function(req, res){
+    if(req.body.itemname) {
+        var sql = "UPDATE resumeBuilder SET item_active=0 WHERE (email, category, item) VALUES (?,?,?)";
+        con.query(sql,[req.session.email, req.params.id, req.body.itemname], function(err,result){
+            if(err){
+            console.log("ERROR:" + err);
+            res.redirect('/resumeBuilder/'+req.params.id);
+            } else {
+            res.redirect('/resumeBuilder/'+req.params.id);          }
+        })
+        }
+        else{
+        res.redirect('/resumeBuilder/'+req.params.id);
+        } 
 }

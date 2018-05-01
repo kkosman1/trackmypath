@@ -116,6 +116,10 @@ router.get('/home', function(req, res, next){
 });
 
 router.get('/interests', interests_controller.interests_get);
+router.post('/interests', interests_controller.interests_post);
+
+router.get('/interests/:id', interests_controller.categoryinstance_detail);
+router.post('/interests/:id', interests_controller.categoryinstance_post);
 
 router.get('/apptracker', app_controller.apptracker_get);
 
@@ -124,6 +128,7 @@ router.post('/resumebuilder', resume_controller.resumebuilder_post);
 
 router.get('/resumebuilder/:id', resume_controller.categoryinstance_detail);
 router.post('/resumebuilder/:id', resume_controller.categoryinstance_post);
+router.post('/resumebuilder/:id/delete', resume_controller.categoryinstance_post_delete);
 
 
 router.get('/logout', function (req, res, next) {
