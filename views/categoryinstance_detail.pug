@@ -8,7 +8,7 @@ block content
     div(class="col-sm-8")
       h2(class="cat-name") #{category}
     div(class="col-sm-4")
-      div(class="add-cat-item" align="right")
+      div(class="add-cat-item" align="right" data-toggle="modal" data-target="#add_modal")
         i(class="fas fa-plus")
   if items
       each item in items
@@ -30,4 +30,36 @@ block content
               div(class="row")
                 div(class="col-sm-12")
                   h4(class="item-detail") #{item.item_desc}
+
+
+  <!-- Modal -->
+  div(class="modal fade" id="add_modal" role="dialog")
+      div(class="modal-dialog")
+
+      <!-- Modal content-->
+      div(class="modal-content modal-lg")
+          div(class="modal-header")
+              button(type="button" class="close" data-dismiss="modal") &times;
+              h4(class="modal-title" style="font-size:21px") Add Item
+          form(class="form-horizontal" method="post")
+              div(class="modal-body")
+                  div(class="signup")
+                          div(class="form-group")
+                              div(class="col-sm-4" align="right" style="font-size:16px")
+                                  label(class="control-label" for="itemname") Item Name:
+                              div(class="col-sm-8")
+                                  input(type="text" class="form-control" name="itemname")
+                          div(class="form-group")
+                              div(class="col-sm-4" align="right" style="font-size:16px")
+                                  label(class="control-label" for="itemtime") Timeframe:
+                              div(class="col-sm-8")
+                                  input(type="textarea" class="form-control" name="itemtime" rows="5")
+                          div(class="form-group")
+                              div(class="col-sm-4" align="right" style="font-size:16px")
+                                  label(class="control-label" for="itemdescription") Description:
+                              div(class="col-sm-8")
+                                  input(type="textarea" class="form-control" name="itemdescription" rows="5")
+              div(class="modal-footer")
+                  input(type="submit" class="btn btn-default" value="Submit")
+                  button(type="button" class="btn btn-default" data-dismiss="modal") Close
         
