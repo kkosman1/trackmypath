@@ -12,54 +12,32 @@ block content
                     div(class='appgridheader')
                         div(class="row")
                             div(class="col-sm-8" style="")
-                                div(class='appgridheadertext')                           
-                                    h4(style="font-size:18px; text-align: left;") TO DO
+                                h4(class='appgridheadertext') TO DO
                             div(class="col-sm-4 add-to-do")
                                 i(class="fas fa-plus" data-target="#newItemModal" data-toggle="modal")
                     ul(id='todolist' class='appgridlist')
-                        li(class='appgriditem' style="font-size:20px") Common App
+                        li(class='appgriditem') Common App
                             div(class="fa fa-circle color_swatch wine")
                             br
                             span(class="label label-danger due-date") March 24
-                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
+                        li(class='appgriditem') Notre Dame Essays
                             div(class="fa fa-circle color_swatch blue")
                             br
                             span(class="label label-warning due-date") April 21
-                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
-                            div(class="fa fa-circle color_swatch blue")
+                        li(class='appgriditem') Lily Scholarship
+                            div(class="fa fa-circle color_swatch green")
                             br
-                            span(class="label label-warning due-date") April 21
-                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
-                            div(class="fa fa-circle color_swatch blue")
-                            br
-                            span(class="label label-warning due-date") April 21
-                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
-                            div(class="fa fa-circle color_swatch blue")
-                            br
-                            span(class="label label-warning due-date") April 21
-                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
-                            div(class="fa fa-circle color_swatch blue")
-                            br
-                            span(class="label label-warning due-date") April 21
-                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
-                            div(class="fa fa-circle color_swatch blue")
-                            br
-                            span(class="label label-warning due-date") April 21
-                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
-                            div(class="fa fa-circle color_swatch blue")
-                            br
-                            span(class="label label-warning due-date") April 21
+                            span(class="label label-default due-date") May 2
+                            
             div(class="col-sm-4")
                 div(class='appgrid')
                     div(class='appgridheader')
-                        div(class='appgridheadertext')
-                            h4(style="font-size:18px; text-align: left;") IN PROGRESS
+                        h4(class='appgridheadertext') IN PROGRESS
                     ul(id='inprogresslist' class='appgridlist')
             div(class="col-sm-4")
                 div(class='appgrid')
                     div(class='appgridheader')
-                        div(class='appgridheadertext')
-                            h4(style="font-size:18px; text-align: left;") COMPLETED
+                        h4(class='appgridheadertext') COMPLETED
                     ul(id='completedlist' class='appgridlist')
 
         div(class="modal fade" id="newItemModal" role="dialog")

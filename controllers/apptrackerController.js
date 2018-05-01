@@ -21,6 +21,6 @@ exports.apptracker_get = function(req, res, next){
     res.redirect('/logout');
   }
   else{
-    res.render('apptracker', { title: 'Track My Path' });
+    res.render('apptracker', { title: 'TrackMyPath' });
   }
 };

@@ -28,7 +28,7 @@ exports.resumebuilder_get = function(req, res){
             });
             console.log(categories);
 
-            res.render('resumebuilder', { title: 'Track My Path', categories: categories });
+            res.render('resumebuilder', { title: 'TrackMyPath', categories: categories });
 
         } else {
             res.redirect('/logout');
@@ -63,10 +63,10 @@ exports.categoryinstance_detail = function(req, res, next) {
             });
             console.log(items);
 
-            res.render('categoryinstance_detail', { title: 'Track My Path', items: items, category: req.params.id });
+            res.render('categoryinstance_detail', { title: 'TrackMyPath', items: items, category: req.params.id });
 
         } else {
-            res.render('categoryinstance_detail', { title: 'Track My Path', category: req.params.id});        }
+            res.render('categoryinstance_detail', { title: 'TrackMyPath', category: req.params.id});        }
     })
   };
 
