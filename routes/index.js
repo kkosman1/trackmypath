@@ -70,6 +70,7 @@ router.post('/login/signup', function(req, res, next){
         req.session.email = req.body.email;
         req.session.user = req.body.firstname + " " + req.body.lastname;
         initPopulateRB(req.session.email);
+        initPopulateInterests(req.session.email);
         res.redirect('/home');
       }
     })
@@ -109,7 +110,7 @@ router.get('/home', function(req, res, next){
           break;
       }
     } else {
-      res.redirect('/login');
+      res.redirect('/logout');
     }
   })
 });
@@ -136,6 +137,20 @@ function initPopulateRB(email){
     [email, 'Sports'],
     [email, 'Test Scores'],
     [email, 'Awards']
+  ];
+  con.query(sql, [values], function (err, result) {
+    if (err) throw err;
+    console.log("Number of records inserted: " + result.affectedRows);
+  });
+};
+
+function initPopulateInterests(email){
+  var sql = "INSERT INTO interests (email, category) VALUES ?";
+  var values = [
+    [email, 'College Preferences'],
+    [email, 'Scholarship Research'],
+    [email, 'Major Research'],
+    [email, 'College Research']
   ];
   con.query(sql, [values], function (err, result) {
     if (err) throw err;

@@ -2,12 +2,26 @@ extends layout
 
 block content
   script.
-      var navbarEl = document.getElementById("resume");
-      navbarEl.classList.add("active");
+    var navbarEl = document.getElementById("resume");
+    navbarEl.classList.add("active");
   div(class="row")
-      div(class="col-sm-12" align="center")
-      if items
-          each item in items
-              p #{item.item}
-              p #{item.item_time}
-              p #{item.item_desc}
+    div(class="col-sm-8")
+      h2(style="font-size:36px") #{category}
+    div(class="col-sm-4")
+      div(style="font-size:4em;" align="right")
+        i(class="fas fa-plus")
+  br
+  if items
+      each item in items
+        div(class="row")
+          div(class="col-sm-12")
+            div(class="itemgrid")
+              div(class="row")
+                div(class="col-sm-8")
+                  h4(style="font-size:24px") #{item.item}
+                div(class="col-sm-2")
+                  h4(style="font-size:24px") #{item.item_time}
+              div(class="row")
+                div(class="col-sm-11")
+                  h4 #{item.item_desc}
+        

@@ -3,12 +3,16 @@ html {
 }
   
 body {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: Verdana, sans-serif;
   background-color: rgb(202, 202, 209);
 }
 
 .navbar {
   padding-right: 0px;
+}
+
+.navbar-default .navbar-brand:hover{
+  color: #777;
 }
 
 .nav-item {
@@ -19,11 +23,11 @@ body {
 }
 
 .nav-item:hover {
-  background-color: lightgray;
+  background-color: rgb(202, 202, 209);
 }
 
 .page-content {
-  margin: 0% 10% 0% 10%;
+  margin: 0px 10px 0px 10px;
 }
 
 .login {
@@ -79,7 +83,7 @@ body {
 }
 
 .resumegrid, .interestsgrid {
-  font-size: 25px;
+  font-size: 36px;
   border: 2px;
   border-radius: 6px;
   width: 25vw;
@@ -144,20 +148,30 @@ body {
 .appgridheader {
   font-size: 4vw;
   border: 2px white;
-  border-radius: 6px;
+  border-radius: 6px 6px 0px 0px;
   width: 20vw;
   height: 5vw;
   vertical-align: middle;
   margin: auto;
   color: #fffcf9;
-  background-color: rgb(151, 146, 146);
+  background-color: #464866;
 }
 
 .appgridheadertext {
   padding: 1.25vw;
 }
 
+.add-to-do {
+  font-size: 2vw;
+  margin-top: 15px;
+}
+
+.add-to-do:hover {
+  color: #9195d0;
+}
+
 .appgriditem {
+  display:block;
   font-size: 2vw;
   padding: 10px;
   border: 2px white;
@@ -166,8 +180,25 @@ body {
   height: 5vw;
   vertical-align: middle;
   margin: auto;
-  color: #fffcf9;
-  background-color: rgb(151, 146, 146);
+  color: #545454;
+  background-color: #eee;
+  margin-bottom: 10px;
+}
+
+.color_swatch {
+  float: right;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+/*  border: 1px solid rgba(0, 0, 0, .2);*/
+}
+
+.wine{color: #ae163e;}
+.blue{color: #4286f4;}
+
+.due-date{
+  text-align:right;
+  font-size: 10px;
 }
 
 .appgriditem:hover {
@@ -183,7 +214,118 @@ body {
   height: 35vw;
   vertical-align: middle;
   margin: auto;
+  text-align: left;
   color: #ffffff;
   background-color: rgb(255, 255, 255);
   list-style-type: none;
+  overflow: scroll;
+}
+
+.colorPickSelector {
+   border-radius: 5px;
+   width: 45px;
+   height: 45px;
+   cursor: pointer;
+   -webkit-transition: all linear .1s;
+   -moz-transition: all linear .1s;
+   -ms-transition: all linear .1s;
+   -o-transition: all linear .1s;
+   transition: all linear .1s;
+}
+.colorPickSelector:hover { transform: scale(1.1); }
+
+#colorPick * {
+  z-index: 1000;
+  -webkit-transition: all linear .2s;
+  -moz-transition: all linear .2s;
+  -ms-transition: all linear .2s;
+  -o-transition: all linear .2s;
+  transition: all linear .2s;
+}
+
+#colorPick {
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(15px);
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  font-family: "Open Sans", sans-serif;
+  width: 140px;
+  z-index:2000;
+}
+
+#colorPick span {
+  font-size: 9pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #bbb;
+  margin-bottom: 5px;
+  display: block;
+  clear: both;
+}
+
+.customColorHash {
+  border-radius: 5px;
+  height: 23px;
+  width: 122px;
+  margin: 1px 4px ;
+  padding: 0 4px;
+  border: 1px solid #babbba;	
+  outline: none;
+}
+.customColorHash.error {
+  border-color: #ff424c;
+  color: #ff424c;
+}
+
+.colorPickButton {
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  margin: 0px 3px;
+  cursor: pointer;
+  display: inline-block;
+  border: thin solid #eee;
+}
+
+.colorPickButton:hover {
+  transform: scale(1.1);
+}
+
+.colorPickDummy {
+  background: #fff;
+  border: 1px dashed #bbb;
+}
+
+#item_name{
+  font-size: 25px;
+  padding: 30px 15px;
+}
+
+.itemgrid {
+  padding: 20px;
+  font-size: 4vw;
+  height: 20vh;
+  color: whitesmoke;
+  background-color: #464866;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  border-radius: 6px;
+}
+
+.itemgrid:hover {
+  background-color: #f7c18ed7;
+  color: black;
+  cursor: pointer;
+}
+
+.itemgrid-inner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 40vh;
+  border-right: 2px solid #8E8D8A;
 }
