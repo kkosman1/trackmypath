@@ -120,6 +120,7 @@ router.get('/interests', interests_controller.interests_get);
 router.get('/apptracker', app_controller.apptracker_get);
 
 router.get('/resumebuilder', resume_controller.resumebuilder_get);
+router.post('/resumebuilder', resume_controller.resumebuilder_post);
 
 router.get('/resumebuilder/:id', resume_controller.categoryinstance_detail);
 

@@ -69,3 +69,21 @@ exports.categoryinstance_detail = function(req, res, next) {
             res.render('categoryinstance_detail', { title: 'Track My Path', category: req.params.id});        }
     })
   };
+
+exports.resumebuilder_post = function(req, res){
+
+    if(req.body.categoryname) {
+        var sql = "INSERT INTO resumeBuilder (email, category, cat_desc) VALUES (?,?,?)";
+        con.query(sql,[req.session.email, req.body.categoryname, req.body.categorydescription], function(err,result){
+          if(err){
+            console.log("ERROR:" + err);
+            res.redirect('/resumeBuilder');
+          } else {
+            res.redirect('/resumeBuilder');
+          }
+        })
+      }
+      else{
+        res.redirect('/resumeBuilder');
+      }
+}
