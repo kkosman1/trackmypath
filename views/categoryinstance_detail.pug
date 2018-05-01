@@ -6,22 +6,28 @@ block content
     navbarEl.classList.add("active");
   div(class="row")
     div(class="col-sm-8")
-      h2(style="font-size:36px") #{category}
+      h2(class="cat-name") #{category}
     div(class="col-sm-4")
-      div(style="font-size:4em;" align="right")
+      div(class="add-cat-item" align="right")
         i(class="fas fa-plus")
-  br
   if items
       each item in items
         div(class="row")
           div(class="col-sm-12")
+            br
             div(class="itemgrid")
               div(class="row")
-                div(class="col-sm-8")
-                  h4(style="font-size:24px") #{item.item}
-                div(class="col-sm-2")
-                  h4(style="font-size:24px") #{item.item_time}
+                div(class="col-sm-8 item-title")
+                  p #{item.item}
+                div(class="col-sm-4" align="right")
+                  div(class="item-edit")
+                    i(class="far fa-edit")
+                  div(class="item-remove")
+                    i(class="fas fa-times")
               div(class="row")
-                div(class="col-sm-11")
-                  h4 #{item.item_desc}
+                div(class="col-sm-12 item-date")
+                  p #{item.item_time}
+              div(class="row")
+                div(class="col-sm-12")
+                  h4(class="item-detail") #{item.item_desc}
         
