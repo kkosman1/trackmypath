@@ -7,6 +7,7 @@ block content
     div(class="row")
         div(class="col-sm-12" align="center")
             br
+            
             div(class="col-sm-4")
                 div(class='appgrid')
                     div(class='appgridheader')
@@ -16,7 +17,7 @@ block content
                             div(class="col-sm-4 add-to-do")
                                 i(class="fas fa-plus" data-target="#newItemModal" data-toggle="modal")
                     ul(id='todolist' class='appgridlist')
-                        li(class='appgriditem') Common App
+                        li(class='appgriditem' data-target="#editModal" data-toggle="modal") Common App
                             div(class="fa fa-circle color_swatch wine")
                             br
                             span(class="label label-danger due-date") March 24
@@ -34,11 +35,26 @@ block content
                     div(class='appgridheader')
                         h4(class='appgridheadertext') IN PROGRESS
                     ul(id='inprogresslist' class='appgridlist')
+                    
             div(class="col-sm-4")
                 div(class='appgrid')
                     div(class='appgridheader')
                         h4(class='appgridheadertext') COMPLETED
                     ul(id='completedlist' class='appgridlist')
+                    
+        div(class="modal fade" id="editModal" role="dialog")
+            div(class="modal-dialog modal-lg")
+                div(class="modal-content")
+                    div(class="modal-header")
+                        div(class="modal-title")
+                            h4 Edit Item
+                    div(class="modal-body" style="margin:5%")
+                    div(class="modal-footer")
+                        button(type="button" class="btn btn-default" data-dismiss="modal")
+                            h4 Done
+                        button(type="button" class="btn btn-danger" data-dismiss="modal" style="float:left;")
+                            h4 Delete item
+
 
         div(class="modal fade" id="newItemModal" role="dialog")
             div(class="modal-dialog modal-lg")
