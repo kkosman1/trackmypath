@@ -92,15 +92,15 @@ exports.categoryinstance_post = function(req, res){
 
     if(req.body.itemname) {
         var sql = "INSERT INTO resumeBuilder (email, category, item, item_time, item_desc, item_active) VALUES (?,?,?,?,?,?)";
-        con.query(sql,[req.session.email, req.params.id, req.body.categorydescription, req.body.time, req.body.desc, 1], function(err,result){
+        con.query(sql,[req.session.email, req.params.id, req.body.itemname, req.body.itemtime, req.body.itemdescription, 1], function(err,result){
           if(err){
             console.log("ERROR:" + err);
-            res.redirect('/resumeBuilder/'+eq.params.id);
+            res.redirect('/resumeBuilder/'+req.params.id);
           } else {
-            res.redirect('/resumeBuilder/'+eq.params.id);          }
+            res.redirect('/resumeBuilder/'+req.params.id);          }
         })
       }
       else{
-        res.redirect('/resumeBuilder/'+eq.params.id);
+        res.redirect('/resumeBuilder/'+req.params.id);
       }      
 }

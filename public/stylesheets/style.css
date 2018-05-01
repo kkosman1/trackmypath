@@ -141,6 +141,23 @@ body {
   text-decoration: underline;
 }
 
+.cat-name {
+  font-size:36px;
+  text-transform: capitalize;
+}
+
+.add-cat-item {
+  font-size:3.5em;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.add-cat-item i:hover {
+  color: #f7c18ed7;
+}
+
 .appgrid {
   font-size: 4vw;
   border: 2px white;
@@ -188,7 +205,6 @@ body {
   border-radius: 6px;
   width: 18vw;
   height: 5vw;
-  vertical-align: middle;
   margin: auto;
   color: #545454;
   background-color: #eee;
@@ -315,22 +331,27 @@ body {
 }
 
 .itemgrid {
-  padding: 20px;
+  padding: 5px 20px 0px 20px;
   font-size: 4vw;
   height: 20vh;
   color: whitesmoke;
   background-color: #464866;
-  -webkit-transition: background-color .2s;
-  transition: background-color .2s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
   border-radius: 6px;
 }
 
-.itemgrid:hover {
-  background-color: #f7c18ed7;
-  color: black;
-  cursor: pointer;
+.item-edit, .item-remove {
+  font-size: 25px;
+  display: inline-block;
+  padding: 0px 0px 0px 10px;
+  color: white;
+  -webkit-transition: color .2s;
+  transition: color .2s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.item-edit:hover, .item-remove:hover {
+  color: #f7c18ed7;
 }
 
 .itemgrid-inner {
@@ -403,3 +424,20 @@ body {
     text-align: center;
     text-shadow: 0 2px 2px rgba(0,0,0,0.5);
   }
+  
+.item-options {
+  font-size: 24px;
+  text-align: right;
+}
+
+.item-title {
+  font-size: 24px;
+}
+
+.item-date {
+  font-size: 21px;
+}
+
+.item-detail {
+  font-size: 18px;
+}
