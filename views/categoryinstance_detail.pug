@@ -20,13 +20,8 @@ block content
                 div(class="col-sm-8 item-title")
                   p #{item.item}
                 div(class="col-sm-4 item-options")
-                  i(class="far fa-edit item-edit")
-                  i(class="fas fa-times item-remove")
-                div(class="col-sm-4" align="right")
-                  div(class="item-edit" data-target="#edit_item_modal" data-toggle="modal")
-                    i(class="far fa-edit")
-                  div(class="item-remove" data-target="#remove_item_modal" data-toggle="modal")
-                    i(class="fas fa-times")
+                  i(class="far fa-edit item-edit" data-target="#edit_item_modal" data-toggle="modal")
+                  i(class="fas fa-times item-remove" data-target="#remove_item_modal" data-toggle="modal")
               div(class="row")
                 div(class="col-sm-12 item-date")
                   p #{item.item_time}
