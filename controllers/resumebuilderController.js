@@ -60,9 +60,9 @@ exports.categoryinstance_detail = function(req, res, next) {
             });
             console.log(items);
 
-            res.render('categoryinstance_detail', { title: 'Track My Path', items: items });
+            res.render('categoryinstance_detail', { title: 'Track My Path', items: items, category: req.params.id });
 
         } else {
-            res.render('categoryinstance_detail', { title: 'Track My Path'});        }
+            res.render('categoryinstance_detail', { title: 'Track My Path', category: req.params.id});        }
     })
   };
