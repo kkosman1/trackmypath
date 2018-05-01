@@ -3,12 +3,16 @@ html {
 }
   
 body {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: Verdana, sans-serif;
   background-color: rgb(202, 202, 209);
 }
 
 .navbar {
   padding-right: 0px;
+}
+
+.navbar-default .navbar-brand:hover{
+  color: #777;
 }
 
 .nav-item {
@@ -19,11 +23,11 @@ body {
 }
 
 .nav-item:hover {
-  background-color: lightgray;
+  background-color: rgb(202, 202, 209);
 }
 
 .page-content {
-  margin: 0% 10% 0% 10%;
+  margin: 0px 10px 0px 10px;
 }
 
 .login {
