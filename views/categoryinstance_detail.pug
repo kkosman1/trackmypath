@@ -12,16 +12,63 @@ block content
         i(class="fas fa-plus")
   br
   if items
-      each item in items
-        div(class="row")
-          div(class="col-sm-12")
-            div(class="itemgrid")
-              div(class="row")
-                div(class="col-sm-8")
-                  h4(style="font-size:24px") #{item.item}
-                div(class="col-sm-2")
-                  h4(style="font-size:24px") #{item.item_time}
-              div(class="row")
-                div(class="col-sm-11")
-                  h4 #{item.item_desc}
+    each item in items
+      div(class="row")
+        div(class="col-sm-12")
+          div(class="itemgrid" data-target="#newItemModal" data-toggle="modal")
+            div(class="row")
+              div(class="col-sm-8")
+                h4(style="font-size:24px") #{item.item}
+              div(class="col-sm-2")
+                h4(style="font-size:24px") #{item.item_time}
+            div(class="row")
+              div(class="col-sm-11")
+                h4 #{item.item_desc}
         
+        div(class="modal fade" id="newItemModal" role="dialog")
+          div(class="modal-dialog modal-lg")
+            div(class="modal-content")
+              div(class="modal-header")
+                div(class="modal-title")
+                  h4(style="font-size:24px") #{item.item}
+              div(class="modal-body" style="margin:5%")
+                form
+                  div(class="row")
+                    div(class="col-sm-12")
+                      label(style="font-size:21px") Timeframe:  
+                      br
+                      label(style="font-size:16px") #{item.item_time}
+                  br
+                  div(class="row")
+                    div(class="col-sm-12")
+                      label(style="font-size:21px") Description:
+                      br
+                      label(style="font-size:16px") #{item.item_desc}
+              div(class="modal-footer")
+                button(type="button" class="btn btn-default" data-dismiss="modal")
+                  h4(style="font-size:16px") Close
+                button(type="button" class="btn btn-default" data-dismiss="modal" data-target="#edit_item_modal" data-toggle="modal")
+                  h4(style="font-size:16px") Edit
+
+        div(class="modal fade" id="edit_item_modal" role="dialog")
+          div(class="modal-dialog modal-lg")
+            div(class="modal-content")
+              div(class="modal-header")
+                div(class="modal-title")
+                  h4(style="font-size:24px") #{item.item}
+              div(class="modal-body" style="margin:5%")
+                form
+                  div(class="row")
+                    div(class="col-sm-12")
+                      label(style="font-size:21px") Timeframe:  
+                      textarea(class="form-control" id="exampleFormControlTextarea1" rows="1" type="text") #{item.item_time}
+                  br
+                  div(class="row")
+                    div(class="col-sm-12")
+                      label(style="font-size:21px") Description:
+                      textarea(class="form-control" id="exampleFormControlTextarea2" rows="5" type="text") #{item.item_desc}
+              div(class="modal-footer")
+                button(type="button" class="btn btn-default" data-dismiss="modal")
+                  h4(style="font-size:16px") Close
+                button(type="button" class="btn btn-default" data-dismiss="modal")
+                  h4(style="font-size:16px") Apply
