@@ -11,24 +11,55 @@ block content
                 div(class='appgrid')
                     div(class='appgridheader')
                         div(class="row")
-                            div(class="col-sm-8")
+                            div(class="col-sm-8" style="")
                                 div(class='appgridheadertext')                           
-                                    h4(style="font-size:18px") TO DO
-                            div(class="col-sm-4")
-                                i(class="fas fa-plus" class="add-to-do")
+                                    h4(style="font-size:18px; text-align: left;") TO DO
+                            div(class="col-sm-4 add-to-do")
+                                i(class="fas fa-plus" data-target="#newItemModal" data-toggle="modal")
                     ul(id='todolist' class='appgridlist')
-                        li(class='appgriditem' style="font-size:16px") Common App
+                        li(class='appgriditem' style="font-size:20px") Common App
+                            div(class="fa fa-circle color_swatch wine")
+                            br
+                            span(class="label label-danger due-date") March 24
+                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
+                            div(class="fa fa-circle color_swatch blue")
+                            br
+                            span(class="label label-warning due-date") April 21
+                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
+                            div(class="fa fa-circle color_swatch blue")
+                            br
+                            span(class="label label-warning due-date") April 21
+                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
+                            div(class="fa fa-circle color_swatch blue")
+                            br
+                            span(class="label label-warning due-date") April 21
+                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
+                            div(class="fa fa-circle color_swatch blue")
+                            br
+                            span(class="label label-warning due-date") April 21
+                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
+                            div(class="fa fa-circle color_swatch blue")
+                            br
+                            span(class="label label-warning due-date") April 21
+                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
+                            div(class="fa fa-circle color_swatch blue")
+                            br
+                            span(class="label label-warning due-date") April 21
+                        li(class='appgriditem' style="font-size:20px") Notre Dame Essays
+                            div(class="fa fa-circle color_swatch blue")
+                            br
+                            span(class="label label-warning due-date") April 21
             div(class="col-sm-4")
                 div(class='appgrid')
                     div(class='appgridheader')
                         div(class='appgridheadertext')
-                            h4(style="font-size:18px") IN PROGRESS
+                            h4(style="font-size:18px; text-align: left;") IN PROGRESS
                     ul(id='inprogresslist' class='appgridlist')
             div(class="col-sm-4")
                 div(class='appgrid')
                     div(class='appgridheader')
                         div(class='appgridheadertext')
-                            h4(style="font-size:18px") COMPLETED
+                            h4(style="font-size:18px; text-align: left;") COMPLETED
                     ul(id='completedlist' class='appgridlist')
 
         div(class="modal fade" id="newItemModal" role="dialog")
@@ -37,16 +68,43 @@ block content
                     div(class="modal-header")
                         div(class="modal-title")
                             h4 Add Item
-                    div(class="modal-body")
-                        h4 This is a large modal.
+                    div(class="modal-body" style="margin:5%")
+                        form
+                            div(class="row")
+                                div(class="col-sm-10")
+                                    label Item name
+                                    input(id="item_name" type="text" class="form-control" name="item_name" placeholder="Common Application")
+                                div(class="col-sm-2")
+                                    label Category
+                                    div(class="colorPickSelector")
+                            br
+                            div(class="row")
+                                div(class="col-sm-8")
+                                    label Description
+                                    textarea(class="form-control" id="exampleFormControlTextarea1" rows="5" type="text" placeholder="Description of task")
+
+                                div(class="col-sm-4")
+                                    label Due date
+                                    div(id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy")
+                    
                     div(class="modal-footer")
                         button(type="button" class="btn btn-default" data-dismiss="modal")
                             h4 Close
                         button(type="button" class="btn btn-default" data-dismiss="modal")
-                            h4 Save
+                            h4 Add to do item
+
+        script(src="/js/colorPick.js")
 
         script. 
             $("#todolist").sortable({connectWith: ".appgridlist"});
             $("#inprogresslist").sortable({connectWith: ".appgridlist"});
             $("#completedlist").sortable({connectWith: ".appgridlist"});
+            $(".colorPickSelector").colorPick({
+                    'initialColor' : '#27ae60',
+                    'onColorSelected': function() {
+                            console.log("The user has selected the color: " + this.color)
+                            this.element.css({'backgroundColor': this.color, 'color': this.color});
+                    }
+            });
+            $( "#datepicker" ).datepicker();
 
