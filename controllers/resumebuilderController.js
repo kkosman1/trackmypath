@@ -31,7 +31,7 @@ exports.resumebuilder_get = function(req, res){
             res.render('resumebuilder', { title: 'Track My Path', categories: categories });
 
         } else {
-            res.redirect('/login');
+            res.redirect('/logout');
         }
     })
 }
@@ -50,6 +50,9 @@ exports.categoryinstance_detail = function(req, res, next) {
       // Successful, so render.
       //res.render('categoryinstance_detail', { title: 'Category:', categoryinstance:  req.params.id});
     //})
+    if(req.session.email == null){
+        res.redirect('/logout');
+    }
     con.query('SELECT item, item_time, item_desc FROM resumeBuilder WHERE email=? AND category=? AND active=1 AND item_active=1',[req.session.email, req.params.id], function(err,result){
         if(result[0]){
             var items = [];
