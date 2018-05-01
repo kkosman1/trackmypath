@@ -37,7 +37,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Track My Path' });
+  res.render('login', { title: 'TrackMyPath' });
 });
 
 router.post('/login', function(req, res, next){
@@ -48,13 +48,13 @@ router.post('/login', function(req, res, next){
       req.session.user = result[0].first_name + " " + result[0].last_name;
       res.redirect('/home');
     } else {
-      res.render('login', { title: 'Track My Path', error: 'Username/password is incorrect'});
+      res.render('login', { title: 'TrackMyPath', error: 'Username/password is incorrect'});
     }
   })
 });
 
 router.get('/login/signup', function(req, res, next){
-  res.render('signup', { title: 'Track My Path' });
+  res.render('signup', { title: 'TrackMyPath' });
 });
 
 router.post('/login/signup', function(req, res, next){
@@ -64,7 +64,7 @@ router.post('/login/signup', function(req, res, next){
     con.query(sql,[req.body.firstname, req.body.lastname, req.body.email, req.body.password, req.body.grade], function(err,result){
       if(err){
         console.log("ERROR:" + err);
-        res.redirect('/login/signup');
+        res.render('signup', { title: 'Track My Path' , error: "Email already in use."});
       } else {
         req.session.authenticated = true;
         req.session.email = req.body.email;
@@ -76,7 +76,7 @@ router.post('/login/signup', function(req, res, next){
     })
   }
   else{
-    res.render('signup', { title: 'Track My Path' });
+    res.render('signup', { title: 'TrackMyPath' });
   }
 });
 
@@ -88,25 +88,25 @@ router.get('/home', function(req, res, next){
       console.log("Grade: " + result[0].grade);
       switch(result[0].grade){
         case "9":
-          res.render('home', { grade: "40", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "40", title: 'TrackMyPath', username: req.session.user });
           break;
         case "10":
-          res.render('home', { grade: "60", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "60", title: 'TrackMyPath', username: req.session.user });
           break;
         case "11":
-          res.render('home', { grade: "80", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "80", title: 'TrackMyPath', username: req.session.user });
           break;
         case "12":
-          res.render('home', { grade: "80", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "80", title: 'TrackMyPath', username: req.session.user });
           break;
         case "Junior High":
-          res.render('home', { grade: "20", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "20", title: 'TrackMyPath', username: req.session.user });
           break;
         case "Elementary School":
-          res.render('home', { grade: "10", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "10", title: 'TrackMyPath', username: req.session.user });
           break;
         default:
-          res.render('home', { grade: "0", title: 'Track My Path', username: req.session.user });
+          res.render('home', { grade: "0", title: 'TrackMyPath', username: req.session.user });
           break;
       }
     } else {
@@ -120,8 +120,10 @@ router.get('/interests', interests_controller.interests_get);
 router.get('/apptracker', app_controller.apptracker_get);
 
 router.get('/resumebuilder', resume_controller.resumebuilder_get);
+router.post('/resumebuilder', resume_controller.resumebuilder_post);
 
 router.get('/resumebuilder/:id', resume_controller.categoryinstance_detail);
+router.post('/resumebuilder/:id', resume_controller.categoryinstance_post);
 
 
 router.get('/logout', function (req, res, next) {
