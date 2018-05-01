@@ -19,17 +19,9 @@ block content
               div(class="row")
                 div(class="col-sm-8 item-title")
                   p #{item.item}
-<<<<<<< HEAD
                 div(class="col-sm-4 item-options")
-                  i(class="far fa-edit item-edit")
+                  i(class="far fa-edit item-edit" data-target="#edit_item_modal" data-toggle="modal")
                   i(class="fas fa-times item-remove")
-=======
-                div(class="col-sm-4" align="right")
-                  div(class="item-edit" data-target="#edit_item_modal" data-toggle="modal")
-                    i(class="far fa-edit")
-                  div(class="item-remove")
-                    i(class="fas fa-times")
->>>>>>> 42d22316ae4fec6038d8cfb6ed3b4cc4c7d7a04b
               div(class="row")
                 div(class="col-sm-12 item-date")
                   p #{item.item_time}
