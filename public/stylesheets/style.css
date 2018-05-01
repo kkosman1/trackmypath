@@ -92,6 +92,7 @@ body {
 
 .resumegrid, .interestsgrid {
   font-size: 36px;
+  text-transform: capitalize;
   border: 2px;
   border-radius: 6px;
   width: 25vw;
