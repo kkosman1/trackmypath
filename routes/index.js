@@ -64,7 +64,7 @@ router.post('/login/signup', function(req, res, next){
     con.query(sql,[req.body.firstname, req.body.lastname, req.body.email, req.body.password, req.body.grade], function(err,result){
       if(err){
         console.log("ERROR:" + err);
-        res.redirect('/login/signup');
+        res.render('signup', { title: 'Track My Path' , error: "Email already in use."});
       } else {
         req.session.authenticated = true;
         req.session.email = req.body.email;
@@ -123,6 +123,7 @@ router.get('/resumebuilder', resume_controller.resumebuilder_get);
 router.post('/resumebuilder', resume_controller.resumebuilder_post);
 
 router.get('/resumebuilder/:id', resume_controller.categoryinstance_detail);
+router.post('/resumebuilder/:id', resume_controller.categoryinstance_post);
 
 
 router.get('/logout', function (req, res, next) {

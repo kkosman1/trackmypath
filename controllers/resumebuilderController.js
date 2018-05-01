@@ -87,3 +87,20 @@ exports.resumebuilder_post = function(req, res){
         res.redirect('/resumeBuilder');
       }
 }
+
+exports.categoryinstance_post = function(req, res){
+
+    if(req.body.itemname) {
+        var sql = "INSERT INTO resumeBuilder (email, category, item, item_time, item_desc, item_active) VALUES (?,?,?,?,?,?)";
+        con.query(sql,[req.session.email, req.params.id, req.body.categorydescription, req.body.time, req.body.desc, 1], function(err,result){
+          if(err){
+            console.log("ERROR:" + err);
+            res.redirect('/resumeBuilder/'+eq.params.id);
+          } else {
+            res.redirect('/resumeBuilder/'+eq.params.id);          }
+        })
+      }
+      else{
+        res.redirect('/resumeBuilder/'+eq.params.id);
+      }      
+}
