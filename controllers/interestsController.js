@@ -51,10 +51,10 @@ exports.categoryinstance_detail = function(req, res, next) {
           });
           console.log(items);
 
-          res.render('categoryinstance_detail', { title: 'TrackMyPath', items: items, category: req.params.id });
+          res.render('interestcategoryinstance_detail', { title: 'TrackMyPath', items: items, category: req.params.id });
 
       } else {
-          res.render('categoryinstance_detail', { title: 'TrackMyPath', category: req.params.id});        }
+          res.render('interestcategoryinstance_detail', { title: 'TrackMyPath', category: req.params.id});        }
   })
 };
 
