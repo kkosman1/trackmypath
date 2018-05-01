@@ -1,3 +1,11 @@
+@media screen and (min-width: 0px) and (max-width: 400px) {
+  .due-date { display: block; }  /* small screens */
+}
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+  .due-date { display: none; }   /* hide it elsewhere */
+}
+
 html {
   height: 100%;
 }
@@ -106,14 +114,14 @@ body {
 
 .resumeaddgrid, .interestsaddgrid {
   font-size: 25px;
-  border: 4px solid gray;
+  border: 4px solid #464866;
   border-radius: 6px;
   width: 25vw;
   height: 17vw;
   max-width: 300px;
   max-height: 200px;
   vertical-align: middle;
-  color: gray;
+  color: #464866;
   background-color: transparent;
   -webkit-transition: background-color .2s;
   transition: background-color .2s;
@@ -175,6 +183,8 @@ body {
 }
 
 .appgridheadertext {
+  font-size: 1.5vw;
+  text-align: left;
   padding: 1.25vw;
 }
 
@@ -189,7 +199,7 @@ body {
 
 .appgriditem {
   display:block;
-  font-size: 2vw;
+  font-size: 1.2vw;
   padding: 10px;
   border: 2px white;
   border-radius: 6px;
@@ -203,18 +213,19 @@ body {
 
 .color_swatch {
   float: right;
-  width: 20px;
-  height: 20px;
-  margin: 5px;
+  width: 1vw;
+  height: 1vw;
+  margin: 0.5vw;
 /*  border: 1px solid rgba(0, 0, 0, .2);*/
 }
 
 .wine{color: #ae163e;}
 .blue{color: #4286f4;}
+.green{color: #4BCB50;}
 
 .due-date{
   text-align:right;
-  font-size: 10px;
+  font-size: 0.8vw;
 }
 
 .appgriditem:hover {
@@ -343,6 +354,7 @@ body {
   color: #f7c18ed7;
 }
 
+<<<<<<< HEAD
 .item-title {
   font-size: 24px;
 }
@@ -353,4 +365,12 @@ body {
 
 .item-detail {
   font-size: 18px;
+=======
+.itemgrid-inner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 40vh;
+  border-right: 2px solid #8E8D8A;
+>>>>>>> 94d173d3ecc436d6c2ad01fde470c02b55700a87
 }

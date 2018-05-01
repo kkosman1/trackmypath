@@ -21,6 +21,6 @@ exports.interests_get = function(req, res, next){
     res.redirect('/logout');
   }
   else{
-    res.render('interests', { title: 'Track My Path' });
+    res.render('interests', { title: 'TrackMyPath' });
   }
 };
