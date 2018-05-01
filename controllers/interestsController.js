@@ -17,10 +17,21 @@ var con = mysql.createConnection({
   });
 
 exports.interests_get = function(req, res, next){
-  if(req.session.email == null){
-    res.redirect('/logout');
-  }
-  else{
-    res.render('interests', { title: 'TrackMyPath' });
-  }
+  con.query('SELECT DISTINCT category FROM interests WHERE email=? AND active=1',[req.session.email], function(err,result){
+    if(result[0]){
+        var categories = [];
+
+        Object.keys(result).forEach(function(key) {
+            var row = result[key];
+            categories.push(row.category);
+        });
+        console.log(categories);
+
+        res.render('interests', { title: 'TrackMyPath', categories: categories });
+
+    } else {
+        res.redirect('/logout');
+    }
+  })
+
 };

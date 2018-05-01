@@ -8,19 +8,50 @@ block content
         div(class="col-sm-12" align="center")
             br
             br
-            div(class="row")
+            - var n = 0;
+            each cat in categories
+                if n % 3 == 0
+                    div(class="row")
+                    div(class="gridbreak")
+                        div(class="col-sm-12")
+                - n++
+                - var dest = "window.location.href='/interests/"+cat.toLowerCase()+"'"
                 div(class="col-sm-4")
-                    button(class="interestsgrid" style="font-size:36px") College Preferences
-                div(class="col-sm-4")
-                    button(class="interestsgrid" style="font-size:36px") Scholarship Research
-                div(class="col-sm-4")
-                    button(class="interestsgrid" style="font-size:36px") Major Research
-            div(class="gridbreak")
-                div(class="col-sm-12")
-            div(class="row")
-                div(class="col-sm-4")
-                    button(class="interestsgrid" style="font-size:36px") College Research
-                div(class="col-sm-4")
-                    button(class="interestsaddgrid")
-                        div(style="font-size:1.5em;")
-                            i(class="fas fa-plus")
+                    button(class="resumegrid" onclick=dest) #{cat}
+
+            if n % 3 == 0
+                div(class="row")
+                div(class="gridbreak")
+                    div(class="col-sm-12")
+
+            div(class="col-sm-4")
+                <!-- Trigger the modal with a button -->
+                button(type="button" class="resumeaddgrid" data-toggle="modal" data-target="#add_modal")
+                    div(style="font-size:1.5em;")
+                        i(class="fas fa-plus")
+
+                <!-- Modal -->
+                div(class="modal fade" id="add_modal" role="dialog")
+                    div(class="modal-dialog")
+    
+                    <!-- Modal content-->
+                    div(class="modal-content modal-lg")
+                        div(class="modal-header")
+                            button(type="button" class="close" data-dismiss="modal") &times;
+                            h4(class="modal-title" style="font-size:21px") Add New Category
+                        form(class="form-horizontal" method="post")
+                            div(class="modal-body")
+                                div(class="signup")
+                                        div(class="form-group")
+                                            div(class="col-sm-4" align="right" style="font-size:16px")
+                                                label(class="control-label" for="categoryname") Category Name:
+                                            div(class="col-sm-8")
+                                                input(type="text" class="form-control" name="categoryname")
+                                        div(class="form-group")
+                                            div(class="col-sm-4" align="right" style="font-size:16px")
+                                                label(class="control-label" for="categorydescription") Description:
+                                            div(class="col-sm-8")
+                                                input(type="textarea" class="form-control" name="categorydescription" rows="5")
+                            div(class="modal-footer")
+                                input(type="submit" class="btn btn-default" value="Submit")
+                                button(type="button" class="btn btn-default" data-dismiss="modal") Close
