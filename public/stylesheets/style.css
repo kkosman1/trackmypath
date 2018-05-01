@@ -354,6 +354,11 @@ body {
   color: #f7c18ed7;
 }
 
+.item-options {
+  font-size: 24px;
+  text-align: right;
+}
+
 .item-title {
   font-size: 24px;
 }
