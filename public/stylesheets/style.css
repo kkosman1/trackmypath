@@ -343,7 +343,16 @@ body {
 .sourcegrid {
   padding: 5px 20px 0px 20px;
   font-size: 4vw;
-  height: 65vh;
+  height: 50vh;
+  color: #464866;
+  background-color: whitesmoke;
+  border-radius: 6px;
+}
+
+.sourcegrid-title {
+  padding: 5px 20px 0px 20px;
+  font-size: 4vw;
+  height: 10vh;
   color: #464866;
   background-color: whitesmoke;
   border-radius: 6px;
