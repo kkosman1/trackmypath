@@ -340,6 +340,15 @@ body {
   border-radius: 6px;
 }
 
+.sourcegrid {
+  padding: 5px 20px 0px 20px;
+  font-size: 4vw;
+  height: 65vh;
+  color: #464866;
+  background-color: whitesmoke;
+  border-radius: 6px;
+}
+
 .item-edit, .item-remove {
   font-size: 25px;
   display: inline-block;
