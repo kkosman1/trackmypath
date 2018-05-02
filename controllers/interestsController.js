@@ -37,7 +37,7 @@ exports.interests_get = function(req, res, next){
 };
 
 // Display details for a specific category
-exports.categoryinstance_detail = function(req, res, next) {
+exports.interestcategoryinstance_detail = function(req, res, next) {
   if(req.session.email == null){
       res.redirect('/logout');
   }

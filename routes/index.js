@@ -118,7 +118,7 @@ router.get('/home', function(req, res, next){
 router.get('/interests', interests_controller.interests_get);
 router.post('/interests', interests_controller.interests_post);
 
-router.get('/interests/:id', interests_controller.categoryinstance_detail);
+router.get('/interests/:id', interests_controller.interestcategoryinstance_detail);
 router.post('/interests/:id', interests_controller.categoryinstance_post);
 
 router.get('/apptracker', app_controller.apptracker_get);
