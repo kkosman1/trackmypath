@@ -91,3 +91,53 @@ exports.categoryinstance_post = function(req, res){
       res.redirect('/interests/'+req.params.id);
       } 
 }
+
+exports.categoryinstance_post_delete = function(req, res){
+  con.query('SELECT item, item_time, item_desc FROM interests WHERE email=? AND category=? AND active=1 AND item_active=1',[req.session.email, req.params.id], function(err,result){
+      if(result[0]){
+          var items = [];
+
+          Object.keys(result).forEach(function(key) {
+              var row = result[key];
+              items.push(row);
+          });
+          var sql = "UPDATE interests SET item_active=0 WHERE email=? AND category=? AND item=?";
+          var item_name = items[req.params.number].item;
+          console.log("item name: "+item_name);
+          con.query(sql,[req.session.email, req.params.id, item_name], function(err,result){
+              if(err){
+              console.log("ERROR:" + err);
+              res.redirect('/interests/'+req.params.id);
+              } else {
+              res.redirect('/interests/'+req.params.id);          
+              }
+          })
+
+      } 
+  })
+}
+
+exports.categoryinstance_post_edit = function(req, res){
+  con.query('SELECT item, item_time, item_desc FROM interests WHERE email=? AND category=? AND active=1 AND item_active=1',[req.session.email, req.params.id], function(err,result){
+      if(result[0]){
+          var items = [];
+
+          Object.keys(result).forEach(function(key) {
+              var row = result[key];
+              items.push(row);
+          });
+          var sql = "UPDATE interests SET item_time=?, item_desc=? WHERE email=? AND category=? AND item=?";
+          var item_name = items[req.params.number].item;
+          console.log("item name: "+item_name);
+          con.query(sql,[req.body.timeframe, req.body.description, req.session.email, req.params.id, item_name], function(err,result){
+              if(err){
+              console.log("ERROR:" + err);
+              res.redirect('/interests/'+req.params.id);
+              } else {
+              res.redirect('/interests/'+req.params.id);          
+              }
+          })
+
+      } 
+  })
+}

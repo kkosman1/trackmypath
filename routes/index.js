@@ -120,6 +120,8 @@ router.post('/interests', interests_controller.interests_post);
 
 router.get('/interests/:id', interests_controller.interestcategoryinstance_detail);
 router.post('/interests/:id', interests_controller.categoryinstance_post);
+router.post('/interests/:id/delete/:number', interests_controller.categoryinstance_post_delete);
+router.post('/interests/:id/edit/:number', interests_controller.categoryinstance_post_edit);
 
 router.get('/apptracker', app_controller.apptracker_get);
 
