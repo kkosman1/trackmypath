@@ -128,7 +128,8 @@ router.post('/resumebuilder', resume_controller.resumebuilder_post);
 
 router.get('/resumebuilder/:id', resume_controller.categoryinstance_detail);
 router.post('/resumebuilder/:id', resume_controller.categoryinstance_post);
-router.post('/resumebuilder/:id/delete', resume_controller.categoryinstance_post_delete);
+router.post('/resumebuilder/:id/delete/:number', resume_controller.categoryinstance_post_delete);
+router.post('/resumebuilder/:id/edit/:number', resume_controller.categoryinstance_post_edit);
 
 
 router.get('/logout', function (req, res, next) {

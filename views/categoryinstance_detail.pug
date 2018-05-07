@@ -11,6 +11,7 @@ block content
       div(class="add-cat-item" align="right" data-toggle="modal" data-target="#add_modal")
         i(class="fas fa-plus")
   if items
+      - var n = 0;
       each item in items
         div(class="row")
           div(class="col-sm-12")
@@ -20,17 +21,18 @@ block content
                 div(class="col-sm-8 item-title")
                   p #{item.item}
                 div(class="col-sm-4 item-options")
-                  i(class="far fa-edit item-edit" data-target="#edit_item_modal" data-toggle="modal")
-                  i(class="fas fa-times item-remove" data-target="#remove_item_modal" data-toggle="modal")
+                  i(class="far fa-edit item-edit" data-target="#edit_item_modal"+n data-id=n data-toggle="modal")
+                  i(class="fas fa-times item-remove" data-target="#remove_item_modal"+n data-toggle="modal")
               div(class="row")
                 div(class="col-sm-12 item-date")
                   p #{item.item_time}
               div(class="row")
                 div(class="col-sm-12")
                   h4(class="item-detail") #{item.item_desc}
+        
 
-        div(class="modal fade" id="edit_item_modal" role="dialog")
-          div(class="modal-dialog modal-lg")
+        div(class="modal fade" id="edit_item_modal"+n role="dialog")
+          form(class="modal-dialog modal-lg" method="post" action="/resumebuilder/"+category+"/edit/"+n)
             div(class="modal-content")
               div(class="modal-header")
                 div(class="modal-title")
@@ -40,31 +42,32 @@ block content
                   div(class="row")
                     div(class="col-sm-12")
                       label(style="font-size:21px") Timeframe:  
-                      textarea(class="form-control" id="exampleFormControlTextarea1" rows="1" type="text") #{item.item_time}
+                      //- textarea(class="form-control" id="exampleFormControlTextarea1" rows="1" type="text") #{item.item_time}
+                      input(type="text" name="timeframe" value=item.item_time)
                   br
                   div(class="row")
                     div(class="col-sm-12")
                       label(style="font-size:21px") Description:
-                      textarea(class="form-control" id="exampleFormControlTextarea2" rows="5" type="text") #{item.item_desc}
+                      //- textarea(class="form-control" id="exampleFormControlTextarea2" rows="5" type="text") #{item.item_desc}
+                      input(type="text" name="description" value=item.item_desc)
               div(class="modal-footer")
-                button(type="button" class="btn btn-default" data-dismiss="modal")
-                  h4(style="font-size:16px") Close
-                button(type="button" class="btn btn-default")
-                  h4(style="font-size:16px") Apply
+                button(type="button" class="btn btn-default" data-dismiss="modal") Close
+                input(type="submit" class="btn btn-default" value="Apply" method="post")
 
-        div(class="modal fade" id="remove_item_modal" role="dialog")
+        div(class="modal fade" id="remove_item_modal"+n role="dialog")
           div(class="modal-dialog modal-lg")
             div(class="modal-content")
               div(class="modal-header")
                 div(class="modal-title")
                   h4(style="font-size:24px" name="itemname" value=item.item) #{item.item}
               div(class="modal-body" style="margin:5%")
-                form(class="form-horizontal" method="post" action="/resumebuilder/"+category+"/delete")
                   div(class="row")
                     h4(style="font-size:24px") Are you sure you want to delete this item?
-              div(class="modal-footer")
-                input(type="submit" class="btn btn-default" value="Yes" formaction="/resumebuilder/"+category+"/delete" method="post")
+              form(class="modal-footer" method="post" action="/resumebuilder/"+category+"/delete/"+n)
+                input(type="submit" class="btn btn-default" value="Yes" method="post")
                 button(type="button" class="btn btn-default" data-dismiss="modal") No
+
+        - n++
 
   <!-- Modal -->
   div(class="modal fade" id="add_modal" role="dialog" name="add_modal")
